@@ -1,0 +1,476 @@
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ    CFT (TM) C FUNCTION TREE GENERATOR 2.30  Copyright (C) J.M. 1988-1994     บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ        CFT is part of CXT - the C EXPLORATION TOOLS                          บ
+บ        You are expressly prohibited from selling this software or parts of   บ
+บ        it in any form, distributing it with another product or removing      บ
+บ        this notice. This software is Copyright (C) J.M..                     บ
+บ        File creation date: Tue Aug 27 14:35:01 1996                          บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ  EXAMPLE: int test()  (9999) <DMPCA> <TEST.C, 100>                           บ
+บ  - int          : function return type                                       บ
+บ  - test()       : function name                                              บ
+บ  - (9999)       : function cross reference number                            บ
+บ  - <DMPCA>      : function found as D=definition, M=macro, P=prototype,      บ
+บ                   C=function call, A=assembler function                      บ
+บ  - <TEST.C, 100>: file name, line number                                     บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                     FUNCTION CALLTREE HIERARCHY LISTING                      บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+[related options: -x -r -m -a -f -i -noundef -u -V -l -S -D -d -F]
+
+void WEP_addHeatSource()
+ ภ short WEP_getNextHeatSource()
+    ภ int crash()
+
+void WEP_addWeapon()
+
+void WEP_adjAmmo()
+ ร int GAM_isViewSprite()
+ ภ int GAM_updateStatusBar()
+
+int WEP_canSeeRange()
+ ร int WEP_canSee()
+ ภ long WEP_getDistance()
+    ภ int ksqrt()
+
+void WEP_changeWeapon()
+ ภ int WEP_changingWeapon()
+
+void WEP_changeWeaponAnim()
+ ร int WEP_firingWeapon()
+ ร int ACT_isDead()
+ ร int WEP_changingWeapon()
+ ร int WEP_lowerWeapon()
+ ร int PLR_setViewWeapon()
+ ร int EFF_displayMessage()
+ ร int GAM_updateStatusBar()
+ ภ int WEP_raiseWeapon()
+
+int WEP_damagePoints()
+ ภ int krand()
+
+void WEP_damageSprite()
+ ร int ACT_getHealth()
+ ร int ACT_setKiller()
+ ร int WEP_damagePoints()
+ ณ  ภ int krand()
+ ณ
+ ร int ACT_damageActor()
+ ร int EFF_spawnBlood()
+ ร int GAM_applyForce()
+ ร int ACT_isActor()
+ ร int ACT_actorPain()
+ ภ void WEP_explodeSprite()
+    ภ int changespritestat()
+
+void WEP_defaultAmmo()
+ ร void WEP_setAmmo()
+ ณ  ร int GAM_isViewSprite()
+ ณ  ภ int GAM_updateStatusBar()
+ ณ
+ ร short WEP_getWeaponAmmoType()
+ ร void WEP_setMaxAmmo()
+ ภ short WEP_getWeaponAmmoType()
+
+short WEP_disperse()
+ ร int krand()
+ ร int krand()
+ ภ int krand()
+
+void WEP_doStatusProjectile()
+ ร struct weaponData *WEP_getSpriteWeaponPtr()
+ ร int ACT_getKiller()
+ ร int ACT_setKiller()
+ ร short WEP_findHeatSource()
+ ณ  ร struct weaponData *WEP_getSpriteWeaponPtr()
+ ณ  ร int EFF_testSpriteFlag()
+ ณ  ร int WEP_canSee()
+ ณ  ร int ACT_isDead()
+ ณ  ภ int WEP_canSee()
+ ณ
+ ร int ACT_getKiller()
+ ร int ACT_isDead()
+ ร int ACT_setKiller()
+ ร int ACT_getKiller()
+ ร int getangle()
+ ร short WEP_turnSprite()
+ ร long WEP_getSpriteHorizontal()
+ ณ  ภ long WEP_getSpriteHorizontalAdj()
+ ณ     ภ int ACT_getDistance()
+ ณ
+ ร void WEP_setAngleVelocities()
+ ณ  ภ struct weaponData *WEP_getSpriteWeaponPtr()
+ ณ
+ ร int movesprite()
+ ร int updatesector()
+ ร int ENG_deletesprite()
+ ร int ceiling()
+ ภ void WEP_explodeSprite()
+    ภ int changespritestat()
+
+void WEP_doStatusProximity()
+ ร struct weaponData *WEP_getSpriteWeaponPtr()
+ ภ void WEP_doStatusProjectile()
+    ร struct weaponData *WEP_getSpriteWeaponPtr()
+    ร int ACT_getKiller()
+    ร int ACT_setKiller()
+    ร short WEP_findHeatSource()
+    ณ  ร struct weaponData *WEP_getSpriteWeaponPtr()
+    ณ  ร int EFF_testSpriteFlag()
+    ณ  ร int WEP_canSee()
+    ณ  ร int ACT_isDead()
+    ณ  ภ int WEP_canSee()
+    ณ
+    ร int ACT_getKiller()
+    ร int ACT_isDead()
+    ร int ACT_setKiller()
+    ร int ACT_getKiller()
+    ร int getangle()
+    ร short WEP_turnSprite()
+    ร long WEP_getSpriteHorizontal()
+    ณ  ภ long WEP_getSpriteHorizontalAdj()
+    ณ     ภ int ACT_getDistance()
+    ณ
+    ร void WEP_setAngleVelocities()
+    ณ  ภ struct weaponData *WEP_getSpriteWeaponPtr()
+    ณ
+    ร int movesprite()
+    ร int updatesector()
+    ร int ENG_deletesprite()
+    ร int ceiling()
+    ภ void WEP_explodeSprite()
+       ภ int changespritestat()
+
+void WEP_drawWeapon()
+ ร int WEP_firingWeapon()
+ ร int ACT_isDead()
+ ร int loadtile()
+ ร int ACT_isDead()
+ ร int WEP_lowerWeapon()
+ ร void WEP_changeWeaponAnim()
+ ณ  ร int WEP_firingWeapon()
+ ณ  ร int ACT_isDead()
+ ณ  ร int WEP_changingWeapon()
+ ณ  ร int WEP_lowerWeapon()
+ ณ  ร int PLR_setViewWeapon()
+ ณ  ร int EFF_displayMessage()
+ ณ  ร int GAM_updateStatusBar()
+ ณ  ภ int WEP_raiseWeapon()
+ ณ
+ ร int loadtile()
+ ร int GAM_isViewSprite()
+ ร int rotatesprite()
+ ร int rand()
+ ร int rotatesprite()
+ ร int rotatesprite()
+ ภ int rotatesprite()
+
+BOOL WEP_findPicName()
+ ร int fopen()
+ ร int memset()
+ ร int fgets()
+ ร int feof()
+ ร int strlen()
+ ร int strupr()
+ ร int strlen()
+ ร int strlen()
+ ร int strlen()
+ ร int stricmp()
+ ร int atoi()
+ ร int fclose()
+ ร int feof()
+ ภ int fclose()
+
+int WEP_fireFrame()
+ ภ struct weaponData *WEP_getSpriteWeaponPtr()
+
+short WEP_fixedDisperse()
+ ภ int mulscale16()
+
+int WEP_getAmmo()
+
+int WEP_getAutoAimSetting()
+
+short WEP_getMaxAmmo()
+
+short WEP_getSpriteAmmoType()
+ ภ short WEP_getWeaponAmmoType()
+
+void WEP_hitscanExplode()
+ ร int ENG_insertsprite()
+ ร int ENG_getNormal()
+ ร void WEP_explodeSprite()
+ ณ  ภ int changespritestat()
+ ณ
+ ภ int EFF_setSpriteFrames()
+
+short WEP_lockon()
+ ร int WEP_canSee()
+ ร long WEP_getDistance()
+ ณ  ภ int ksqrt()
+ ณ
+ ร int WEP_canSee()
+ ภ long WEP_getDistance()
+    ภ int ksqrt()
+
+int WEP_nextFrame()
+ ร struct weaponData *WEP_getSpriteWeaponPtr()
+ ภ int WEP_fireFrame()
+    ภ struct weaponData *WEP_getSpriteWeaponPtr()
+
+void WEP_projectileExplode()
+ ร int ENG_insertsprite()
+ ร int EFF_setSpriteFrames()
+ ร void WEP_spawnShockwave()
+ ณ  ร struct weaponData *WEP_getSpriteWeaponPtr()
+ ณ  ร int mulscale16()
+ ณ  ร int divscale16()
+ ณ  ร int ENG_insertsprite()
+ ณ  ร int EFF_setSpriteFrames()
+ ณ  ภ void WEP_setAngleVelocities()
+ ณ     ภ struct weaponData *WEP_getSpriteWeaponPtr()
+ ณ
+ ร int WEP_canSee()
+ ร long WEP_getDistance()
+ ณ  ภ int ksqrt()
+ ณ
+ ร void WEP_damageSprite()
+ ณ  ร int ACT_getHealth()
+ ณ  ร int ACT_setKiller()
+ ณ  ร int WEP_damagePoints()
+ ณ  ณ  ภ int krand()
+ ณ  ณ
+ ณ  ร int ACT_damageActor()
+ ณ  ร int EFF_spawnBlood()
+ ณ  ร int GAM_applyForce()
+ ณ  ร int ACT_isActor()
+ ณ  ร int ACT_actorPain()
+ ณ  ภ void WEP_explodeSprite()
+ ณ     ภ int changespritestat()
+ ณ
+ ร int ACT_isDead()
+ ร int ACT_setKiller()
+ ร int EFF_setSpriteFrames()
+ ร int TMR_getSecondFraction()
+ ร int SND_playExplosionSound()
+ ภ int ENG_deletesprite()
+
+int WEP_readyToFire()
+ ร int WEP_firingWeapon()
+ ภ int WEP_nextFrame()
+    ร struct weaponData *WEP_getSpriteWeaponPtr()
+    ภ int WEP_fireFrame()
+       ภ struct weaponData *WEP_getSpriteWeaponPtr()
+
+void WEP_shootWeapon()
+ ร struct weaponData *WEP_getSpriteWeaponPtr()
+ ร int ACT_isActor()
+ ร int ACT_getAttackee()
+ ร long WEP_getSpriteHorizontal()
+ ณ  ภ long WEP_getSpriteHorizontalAdj()
+ ณ     ภ int ACT_getDistance()
+ ณ
+ ร short WEP_lockon()
+ ณ  ร int WEP_canSee()
+ ณ  ร long WEP_getDistance()
+ ณ  ณ  ภ int ksqrt()
+ ณ  ณ
+ ณ  ร int WEP_canSee()
+ ณ  ภ long WEP_getDistance()
+ ณ     ภ int ksqrt()
+ ณ
+ ร int getangle()
+ ร long WEP_getSpriteHorizontal()
+ ณ  ภ long WEP_getSpriteHorizontalAdj()
+ ณ     ภ int ACT_getDistance()
+ ณ
+ ร short WEP_disperse()
+ ณ  ร int krand()
+ ณ  ร int krand()
+ ณ  ภ int krand()
+ ณ
+ ร int hitscan()
+ ภ void WEP_spawnProjectile()
+    ร int ENG_insertsprite()
+    ร short WEP_fixedDisperse()
+    ณ  ภ int mulscale16()
+    ณ
+    ร short WEP_disperse()
+    ณ  ร int krand()
+    ณ  ร int krand()
+    ณ  ภ int krand()
+    ณ
+    ร int EFF_resetSpriteFlag()
+    ร int EFF_getSpriteFlag()
+    ร int EFF_setSpriteFlag()
+    ร int ACT_isActor()
+    ร int ACT_getAttackee()
+    ร int PLR_isPlayer()
+    ร short WEP_lockon()
+    ณ  ร int WEP_canSee()
+    ณ  ร long WEP_getDistance()
+    ณ  ณ  ภ int ksqrt()
+    ณ  ณ
+    ณ  ร int WEP_canSee()
+    ณ  ภ long WEP_getDistance()
+    ณ     ภ int ksqrt()
+    ณ
+    ร long WEP_getSpriteHorizontal()
+    ณ  ภ long WEP_getSpriteHorizontalAdj()
+    ณ     ภ int ACT_getDistance()
+    ณ
+    ร int ACT_setKiller()
+    ภ void WEP_setAngleVelocities()
+       ภ struct weaponData *WEP_getSpriteWeaponPtr()
+
+void WEP_spriteFireWeapon()
+ ร int ACT_isDead()
+ ร int WEP_readyToFire()
+ ณ  ร int WEP_firingWeapon()
+ ณ  ภ int WEP_nextFrame()
+ ณ     ร struct weaponData *WEP_getSpriteWeaponPtr()
+ ณ     ภ int WEP_fireFrame()
+ ณ        ภ struct weaponData *WEP_getSpriteWeaponPtr()
+ ณ
+ ร int ACT_getSpritePic()
+ ร int WEP_getAmmo()
+ ร short WEP_getWeaponAmmoType()
+ ร int SND_playWeaponSound()
+ ร int GAM_getMadeNoise()
+ ร int GAM_setMadeNoise()
+ ร int divscale16()
+ ร void WEP_shootWeapon()
+ ณ  ร struct weaponData *WEP_getSpriteWeaponPtr()
+ ณ  ร int ACT_isActor()
+ ณ  ร int ACT_getAttackee()
+ ณ  ร long WEP_getSpriteHorizontal()
+ ณ  ณ  ภ long WEP_getSpriteHorizontalAdj()
+ ณ  ณ     ภ int ACT_getDistance()
+ ณ  ณ
+ ณ  ร short WEP_lockon()
+ ณ  ณ  ร int WEP_canSee()
+ ณ  ณ  ร long WEP_getDistance()
+ ณ  ณ  ณ  ภ int ksqrt()
+ ณ  ณ  ณ
+ ณ  ณ  ร int WEP_canSee()
+ ณ  ณ  ภ long WEP_getDistance()
+ ณ  ณ     ภ int ksqrt()
+ ณ  ณ
+ ณ  ร int getangle()
+ ณ  ร long WEP_getSpriteHorizontal()
+ ณ  ณ  ภ long WEP_getSpriteHorizontalAdj()
+ ณ  ณ     ภ int ACT_getDistance()
+ ณ  ณ
+ ณ  ร short WEP_disperse()
+ ณ  ณ  ร int krand()
+ ณ  ณ  ร int krand()
+ ณ  ณ  ภ int krand()
+ ณ  ณ
+ ณ  ร int hitscan()
+ ณ  ภ void WEP_spawnProjectile()
+ ณ     ร int ENG_insertsprite()
+ ณ     ร short WEP_fixedDisperse()
+ ณ     ณ  ภ int mulscale16()
+ ณ     ณ
+ ณ     ร short WEP_disperse()
+ ณ     ณ  ร int krand()
+ ณ     ณ  ร int krand()
+ ณ     ณ  ภ int krand()
+ ณ     ณ
+ ณ     ร int EFF_resetSpriteFlag()
+ ณ     ร int EFF_getSpriteFlag()
+ ณ     ร int EFF_setSpriteFlag()
+ ณ     ร int ACT_isActor()
+ ณ     ร int ACT_getAttackee()
+ ณ     ร int PLR_isPlayer()
+ ณ     ร short WEP_lockon()
+ ณ     ณ  ร int WEP_canSee()
+ ณ     ณ  ร long WEP_getDistance()
+ ณ     ณ  ณ  ภ int ksqrt()
+ ณ     ณ  ณ
+ ณ     ณ  ร int WEP_canSee()
+ ณ     ณ  ภ long WEP_getDistance()
+ ณ     ณ     ภ int ksqrt()
+ ณ     ณ
+ ณ     ร long WEP_getSpriteHorizontal()
+ ณ     ณ  ภ long WEP_getSpriteHorizontalAdj()
+ ณ     ณ     ภ int ACT_getDistance()
+ ณ     ณ
+ ณ     ร int ACT_setKiller()
+ ณ     ภ void WEP_setAngleVelocities()
+ ณ        ภ struct weaponData *WEP_getSpriteWeaponPtr()
+ ณ
+ ร void WEP_hitscanExplode()
+ ณ  ร int ENG_insertsprite()
+ ณ  ร int ENG_getNormal()
+ ณ  ร void WEP_explodeSprite()
+ ณ  ณ  ภ int changespritestat()
+ ณ  ณ
+ ณ  ภ int EFF_setSpriteFrames()
+ ณ
+ ร void WEP_damageSprite()
+ ณ  ร int ACT_getHealth()
+ ณ  ร int ACT_setKiller()
+ ณ  ร int WEP_damagePoints()
+ ณ  ณ  ภ int krand()
+ ณ  ณ
+ ณ  ร int ACT_damageActor()
+ ณ  ร int EFF_spawnBlood()
+ ณ  ร int GAM_applyForce()
+ ณ  ร int ACT_isActor()
+ ณ  ร int ACT_actorPain()
+ ณ  ภ void WEP_explodeSprite()
+ ณ     ภ int changespritestat()
+ ณ
+ ร void WEP_hitscanExplode()
+ ณ  ร int ENG_insertsprite()
+ ณ  ร int ENG_getNormal()
+ ณ  ร void WEP_explodeSprite()
+ ณ  ณ  ภ int changespritestat()
+ ณ  ณ
+ ณ  ภ int EFF_setSpriteFrames()
+ ณ
+ ร int ACT_isDead()
+ ร int ACT_setKiller()
+ ภ void WEP_adjAmmo()
+    ร int GAM_isViewSprite()
+    ภ int GAM_updateStatusBar()
+
+void WEP_toggleAutoAimSetting()
+
+void WEP_weaponActivated()
+
+
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ               TOTAL NUMBER OF FUNCTIONS REFERENCED :  101 (350)              บ
+บ               NUMBER OF FUNCTION DEFINITIONS       :   47                    บ
+บ               NUMBER OF UNDEFINED FUNCTIONS        :   54                    บ
+บ               DIRECTED CALL GRAPH WITH 101 NODES AND 139 CONNECTIONS         บ
+บ               MAXIMUM CALL PATH DEPTH              :    5                    บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+
+ษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+บ                               FILE INFORMATION                               บ
+ศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+
+[related options: -p -q]
+
+FILE             SIZE/ SCANNED         LINES/SCANNED
+CORR7WEP.C  :   38277/   38277 bytes,   1405/   1405 lines,   47 functions <D:/CORR7/SRC/>
+
+TOTAL       :   38277/   38277 bytes,   1405/   1405 lines,   47 functions in 1 of 1 files
+
+source files:    1,    38277 bytes,    1405 lines
+include files:   0,        0 bytes,       0 lines
+average number of included files for every source file: 0.00
+

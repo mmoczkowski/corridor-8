@@ -1,0 +1,12 @@
+//#line "corr7smk.c" 34
+extern void *__pascal radmalloc(unsigned long numbytes);
+//#line "corr7smk.c" 58
+extern void __pascal radfree(void *ptr);
+//#line "corr7smk.c" 71
+extern void SMK_init(void );
+//#line "corr7smk.c" 84
+extern void SMK_loadPalette(char *pal);
+//#line "corr7smk.c" 90
+extern void SMK_setPalette(void );
+//#line "corr7smk.c" 96
+extern void SMK_playFlic(char *path);

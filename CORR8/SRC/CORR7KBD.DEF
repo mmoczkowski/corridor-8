@@ -1,0 +1,6 @@
+//#line "corr7kbd.c" 17
+extern void KBD_resetKeys(void );
+//#line "corr7kbd.c" 27
+extern int KBD_keyPressed(void );
+//#line "corr7kbd.c" 56
+extern void KBD_copyKeys(void );

@@ -1,0 +1,32 @@
+//#line "corr7gfx.c" 53
+extern void GFX_setPalette(char *pal);
+//#line "corr7gfx.c" 62
+extern void GFX_initPalShifts(void );
+//#line "corr7gfx.c" 110
+extern void GFX_initFadePalette(void );
+//#line "corr7gfx.c" 120
+extern void GFX_fadePalette(int intensity);
+//#line "corr7gfx.c" 132
+extern int GFX_screenFaded(void );
+//#line "corr7gfx.c" 143
+extern void GFX_waitFade(void );
+//#line "corr7gfx.c" 171
+extern void GFX_fadeOut(int speed);
+//#line "corr7gfx.c" 186
+extern void GFX_waitFadeOut(int speed);
+//#line "corr7gfx.c" 195
+extern void GFX_fadeIn(int speed);
+//#line "corr7gfx.c" 210
+extern void GFX_waitFadeIn(int speed);
+//#line "corr7gfx.c" 219
+extern void GFX_stopFade(void );
+//#line "corr7gfx.c" 229
+extern void GFX_redShift(int n);
+//#line "corr7gfx.c" 240
+extern void GFX_greenShift(int n);
+//#line "corr7gfx.c" 251
+extern void GFX_blueShift(int n);
+//#line "corr7gfx.c" 262
+extern void GFX_animatePalette(void );
+//#line "corr7gfx.c" 355
+extern void GFX_initPlayerShifts(void );

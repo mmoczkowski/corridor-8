@@ -1,0 +1,128 @@
+//#line "corr7snd.c" 94
+extern BOOL SND_SOSInitialized(void );
+//#line "corr7snd.c" 103
+extern BOOL SND_digiInitialized(void );
+//#line "corr7snd.c" 112
+extern void SND_initSOS(void );
+//#line "corr7snd.c" 151
+extern void SND_unInitSOS(void );
+//#line "corr7snd.c" 165
+extern void SND_initSounds(char *iniFile);
+//#line "corr7snd.c" 197
+extern void SND_unInitPointers(void );
+//#line "corr7snd.c" 212
+extern long SND_alcmem(long numbytes);
+//#line "corr7snd.c" 226
+extern void SND_alcfree(long ptr);
+//#line "corr7snd.c" 239
+extern _SOS_SAMPLE *__cdecl SND_loadSampleFile(PSTR szName);
+//#line "corr7snd.c" 312
+extern void __cdecl SND_digiDoneCallback(_SOS_SAMPLE *sData);
+//#line "corr7snd.c" 327
+extern W32 SND_getNextSample(void );
+//#line "corr7snd.c" 342
+extern W32 SND_playSample(W32 owner,W32 pri,W32 wVol,char *wavFile,W32 loopCount);
+//#line "corr7snd.c" 378
+extern void SND_setSampleLocation(long x,long y,short snum,W32 hSample);
+//#line "corr7snd.c" 437
+extern W32 SND_playSampleXY(long x,long y,W32 owner,W32 pri,char *wavFile,W32 loopCount);
+//#line "corr7snd.c" 447
+extern W32 SND_playSampleLocation(W32 owner,W32 pri,char *wavFile,W32 loopCount);
+//#line "corr7snd.c" 460
+extern W32 SND_playSampleIndex(W32 owner,W32 pri,W32 sound,W32 loopCount);
+//#line "corr7snd.c" 469
+extern W32 SND_playSampleIndexXY(long x,long y,W32 owner,W32 pri,W32 sound,W32 loopCount);
+//#line "corr7snd.c" 478
+extern void SND_stopSampleIndex(W32 owner);
+//#line "corr7snd.c" 490
+extern W32 SND_soundPlaying(W32 owner);
+//#line "corr7snd.c" 504
+extern void SND_stopAllSounds(void );
+//#line "corr7snd.c" 521
+extern void SND_debugSoundHandles(void );
+//#line "corr7snd.c" 540
+extern void SND_debugMemoryPtrs(void );
+//#line "corr7snd.c" 559
+extern void SND_debugSoundIDs(void );
+//#line "corr7snd.c" 579
+extern void SND_debug(void );
+//#line "corr7snd.c" 591
+extern short SND_getSoundVolume(void );
+//#line "corr7snd.c" 597
+extern void SND_setSoundVolume(short vol);
+//#line "corr7snd.c" 603
+extern int SND_isAmbientSound(short s);
+//#line "corr7snd.c" 612
+extern int SND_isSectorSound(short s);
+//#line "corr7snd.c" 621
+extern short SND_getSoundNum(spritetype *spr);
+//#line "corr7snd.c" 627
+extern void SND_setSoundNum(spritetype *spr,short n);
+//#line "corr7snd.c" 633
+extern short SND_getSoundPlaytime(short s);
+//#line "corr7snd.c" 639
+extern void SND_setSoundPlaytime(short s,short n);
+//#line "corr7snd.c" 645
+extern short SND_getSoundLoopCount(short s);
+//#line "corr7snd.c" 651
+extern void SND_setSoundLoopCount(short s,short n);
+//#line "corr7snd.c" 657
+extern void SND_playAmbientSounds(short s);
+//#line "corr7snd.c" 690
+extern void SND_playSectorMovingSound(short s,int playflag);
+//#line "corr7snd.c" 724
+extern void SND_playEnterSectorSounds(short s);
+//#line "corr7snd.c" 740
+extern void SND_playLeaveSectorSounds(short s);
+//#line "corr7snd.c" 756
+extern void SND_playSectorOpenSound(short s);
+//#line "corr7snd.c" 772
+extern void SND_playSectorCloseSound(short s);
+//#line "corr7snd.c" 788
+extern void SND_playSectorStopSound(short s);
+//#line "corr7snd.c" 804
+extern void SND_playTeleportSound(short s);
+//#line "corr7snd.c" 810
+extern void SND_playerPainSound(short s);
+//#line "corr7snd.c" 818
+extern void SND_playerDieSound(short s);
+//#line "corr7snd.c" 824
+extern void SND_playerGoreSound(short s);
+//#line "corr7snd.c" 830
+extern void SND_playEnemy1DieSound(short s);
+//#line "corr7snd.c" 836
+extern void SND_playEnemy1SightSound(short s);
+//#line "corr7snd.c" 842
+extern void SND_playExplosionSound(short s);
+//#line "corr7snd.c" 848
+extern void SND_playSwitchOnSound(short s);
+//#line "corr7snd.c" 854
+extern void SND_playSwitchOffSound(short s);
+//#line "corr7snd.c" 860
+extern void SND_playWallSwitchOnSound(short w);
+//#line "corr7snd.c" 870
+extern void SND_playWallSwitchOffSound(short w);
+//#line "corr7snd.c" 880
+extern void SND_playProximityArmedSound(short s);
+//#line "corr7snd.c" 886
+extern void SND_playMenuChooseSound(void );
+//#line "corr7snd.c" 892
+extern void SND_playMenuSlideSound(void );
+//#line "corr7snd.c" 898
+extern void SND_playMenuDoneSound(void );
+//#line "corr7snd.c" 904
+extern void SND_playMenuQuitSound(void );
+//#line "corr7snd.c" 910
+extern void SND_playWeaponSound(W32 owner,char *wavfile,W32 loopCount);
+//#line "corr7snd.c" 916
+extern char *SND_getSoundName(short i);
+//#line "corr7snd.c" 925
+extern void SND_showSoundList(void );
+//#line "corr7snd.c" 940
+extern char *SND_getSoundPlaytimeName(short i);
+//#line "corr7snd.c" 962
+extern void SND_showSoundPlaytimes(void );
+//#line "corr7snd.c" 978
+extern void SND_scanSprite(short s);
+//#line "corr7snd.c" 1003
+extern void SND_scanMap(void );

@@ -1,0 +1,16 @@
+//#line "corr7tmr.c" 23
+extern void TMR_resetTicsPerFrame(void );
+//#line "corr7tmr.c" 30
+extern void TMR_timerHandler(void );
+//#line "corr7tmr.c" 40
+extern void TMR_initTimer(void );
+//#line "corr7tmr.c" 50
+extern void TMR_uninitTimer(void );
+//#line "corr7tmr.c" 61
+extern void TMR_registerEvent(W32 rate,void (*pEvent)(void ),HANDLE *hEvent);
+//#line "corr7tmr.c" 67
+extern void TMR_removeEvent(HANDLE hEvent);
+//#line "corr7tmr.c" 73
+extern long TMR_getSecondTics(long seconds);
+//#line "corr7tmr.c" 79
+extern long TMR_getSecondFraction(int frac);

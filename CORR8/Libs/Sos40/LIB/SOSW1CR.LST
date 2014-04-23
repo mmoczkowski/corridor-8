@@ -1,0 +1,463 @@
+digiQueueAddItem_.....SOSMDQ            
+digiQueueDeleteItemMIDI_......................................SOSMDQ
+digiQueueDeleteItemWAVE_......................................SOSMDQ
+digiQueueDeleteItem_..SOSMDQ            
+digiQueueFindItemMIDI_........................................SOSMDQ
+digiQueueGetItemWAVE_.SOSMDQ            digiQueueGetItem_.....SOSMDQ
+digiQueueInit_........SOSMDQ            digiQueueUnInit_......SOSMDQ
+sosAllocVDSPage_.....SOSINIT            sosAlloc_...........SOSALLOC
+sosDIGIAllocDMABuffer_.......................................SOSINIT
+sosDIGIDetectFindFirst_.....................................SOSDETEC
+sosDIGIDetectFindHardware_..................................SOSDETEC
+sosDIGIDetectFindNext_......................................SOSDETEC
+sosDIGIDetectGetCaps_.......................................SOSDETEC
+sosDIGIDetectGetSettings_...................................SOSDETEC
+sosDIGIDetectInit_..SOSDETEC            
+sosDIGIDetectUnInit_........................................SOSDETEC
+sosDIGIDetectVerifySettings_................................SOSDETEC
+sosDIGIGetBytesProcessed_....................................SOSCNTL
+sosDIGIGetDeviceCaps_........................................SOSCAPS
+sosDIGIGetDMAPosition_.......................................SOSCNTL
+sosDIGIGetLoopCount_.SOSCNTL            
+sosDIGIGetPanLocation_.......................................SOSCNTL
+sosDIGIGetPanSpeed_..SOSCNTL            
+sosDIGIGetSampleHandle_......................................SOSCNTL
+sosDIGIGetSampleID_..SOSCNTL            
+sosDIGIGetSampleRate_........................................SOSCNTL
+sosDIGIGetSampleVolume_......................................SOSCNTL
+sosDIGIInitDriver_...SOSINIT            sosDIGIInitSystem_....SOSSYS
+sosDIGILoadDriver_...SOSLOAD            sosDIGILockLibrary_..SOSLOCK
+sosDIGIMixFunction0_.SOSINIT            sosDIGIMixFunction1_.SOSINIT
+sosDIGIMixFunction2_.SOSINIT            sosDIGIMixFunction3_.SOSINIT
+sosDIGIMixFunction4_.SOSINIT            sosDIGISampleDone_...SOSCNTL
+sosDIGISamplesPlaying_.......................................SOSCNTL
+sosDIGISetPanLocation_.......................................SOSCNTL
+sosDIGISetSampleRate_........................................SOSCNTL
+sosDIGISetSampleVolume_......................................SOSCNTL
+sosDIGIStartSample_.SOSSTART            
+sosDIGIStopAllSamples_......................................SOSSTART
+sosDIGIStopSample_..SOSSTART            sosDIGIUnInitDriver_.SOSINIT
+sosDIGIUnInitSystem_..SOSSYS            sosDIGIUnLoadDriver_.SOSLOAD
+sosDIGIUnLockLibrary_........................................SOSLOCK
+sosFreeVDSPage_......SOSINIT            sosFree_............SOSALLOC
+sosGetErrorString_....SOSERR            
+sosMIDIAcquireChannel_......................................SOSMCHNL
+sosMIDIAddSong_.....SOSMSONG            sosMIDIAddTrack_....SOSMTRCK
+sosMIDIBranchSong_..SOSMBRCH            
+sosMIDIBranchToSongID_......................................SOSMBRCH
+sosMIDIBranchToTrackID_.....................................SOSMBRCH
+sosMIDIBranchTrack_.SOSMBRCH            
+sosMIDICalculateLocation_...................................SOSMTMPO
+sosMIDICode10End_....SOSMINS            sosMIDICode10Start_..SOSMINS
+sosMIDICode11End_...SOSMLOAD            sosMIDICode11Start_.SOSMLOAD
+sosMIDICode12End_...SOSMLOCK            sosMIDICode12Start_.SOSMLOCK
+sosMIDICode13End_....SOSMMAP            sosMIDICode13Start_..SOSMMAP
+sosMIDICode14End_...SOSMMUTE            sosMIDICode14Start_.SOSMMUTE
+sosMIDICode15End_...SOSMPAUS            sosMIDICode15Start_.SOSMPAUS
+sosMIDICode16End_...SOSMPLAY            sosMIDICode16Start_.SOSMPLAY
+sosMIDICode17End_...SOSMSEND            sosMIDICode17Start_.SOSMSEND
+sosMIDICode18End_...SOSMSONG            sosMIDICode18Start_.SOSMSONG
+sosMIDICode19End_....SOSMSYS            sosMIDICode19Start_..SOSMSYS
+sosMIDICode1End_....SOSMBRCH            sosMIDICode1Start_..SOSMBRCH
+sosMIDICode20End_...SOSMTMPO            sosMIDICode20Start_.SOSMTMPO
+sosMIDICode21End_...SOSMTRCK            sosMIDICode21Start_.SOSMTRCK
+sosMIDICode22End_....SOSMVOL            sosMIDICode22Start_..SOSMVOL
+sosMIDICode2End_....SOSMCBCK            sosMIDICode2Start_..SOSMCBCK
+sosMIDICode3End_....SOSMCHNL            sosMIDICode3Start_..SOSMCHNL
+sosMIDICode4End_.....SOSMDEP            sosMIDICode4Start_...SOSMDEP
+sosMIDICode5End_....SOSMDIGI            sosMIDICode5Start_..SOSMDIGI
+sosMIDICode6End_....SOSMDLTA            sosMIDICode6Start_..SOSMDLTA
+sosMIDICode7End_......SOSMDQ            sosMIDICode7Start_....SOSMDQ
+sosMIDICode8End_....SOSMEVNT            sosMIDICode8Start_..SOSMEVNT
+sosMIDICode9End_....SOSMINIT            sosMIDICode9Start_..SOSMINIT
+sosMIDIFadeSong_.....SOSMVOL            
+sosMIDIFlushTriggeredPatches_...............................SOSMDIGI
+sosMIDIGetDeltaTime_........................................SOSMDLTA
+sosMIDIGetSongLocation_.....................................SOSMTMPO
+sosMIDIGetSongNotesOn_......................................SOSMSONG
+sosMIDIGetTrackLocation_....................................SOSMTMPO
+sosMIDIInitDependencyList_...................................SOSMDEP
+sosMIDIInitDriver_..SOSMINIT            sosMIDIInitSong_....SOSMSONG
+sosMIDIInitSystem_...SOSMSYS            sosMIDIInitTrack_...SOSMTRCK
+sosMIDILoadDriver_..SOSMLOAD            
+sosMIDILoadTriggeredPatches_................................SOSMDIGI
+sosMIDILockLibrary_.SOSMLOCK            sosMIDIMapTrack_.....SOSMMAP
+sosMIDIMT32Timer_....SOSMINS            sosMIDIMuteSong_....SOSMMUTE
+sosMIDIPauseSong_...SOSMPAUS            
+sosMIDIProcessEvent_........................................SOSMEVNT
+sosMIDIProcessSongEvents_...................................SOSMEVNT
+sosMIDIProcessSong_.SOSMSONG            
+sosMIDIRegisterBranchFunction_..............................SOSMBRCH
+sosMIDIRegisterLoopFunction_................................SOSMBRCH
+sosMIDIRegisterTriggerFunction_.............................SOSMBRCH
+sosMIDIReleaseChannel_......................................SOSMCHNL
+sosMIDIReleaseDigitalPatchFile_.............................SOSMDIGI
+sosMIDIResetChannelStealing_................................SOSMCHNL
+sosMIDIResetDriver_.SOSMINIT            sosMIDIResetSong_...SOSMSONG
+sosMIDIResumeSong_..SOSMPAUS            
+sosMIDISendChannelInfo_.....................................SOSMCHNL
+sosMIDISendMIDIData_........................................SOSMSEND
+sosMIDISendMIDIEvent_.......................................SOSMSEND
+sosMIDISetDigitalPatchFile_.................................SOSMDIGI
+sosMIDISetDriverVolume_......................................SOSMVOL
+sosMIDISetInsData_...SOSMINS            
+sosMIDISetMasterVolume_......................................SOSMVOL
+sosMIDISetMT32InsData_.......................................SOSMINS
+sosMIDISetSongVolume_........................................SOSMVOL
+sosMIDISongAlterTempo_......................................SOSMTMPO
+sosMIDISongDone_....SOSMPLAY            sosMIDIStartSong_...SOSMPLAY
+sosMIDIStealTrackListInsert_................................SOSMTRCK
+sosMIDIStealTrackListRemove_................................SOSMTRCK
+sosMIDIStealTrackListRetreive_..............................SOSMTRCK
+sosMIDIStopSong_....SOSMPLAY            
+sosMIDIUnInitDriver_........................................SOSMINIT
+sosMIDIUnInitSong_..SOSMSONG            sosMIDIUnInitSystem_.SOSMSYS
+sosMIDIUnLoadDriver_........................................SOSMLOAD
+sosMIDIUnLockLibrary_.......................................SOSMLOCK
+sosMIDIUnMuteSong_..SOSMMUTE            
+sosMIDIUpdateChannel_.......................................SOSMCHNL
+sosModule10End_.......SOSSYS            sosModule10Start_.....SOSSYS
+sosModule11End_.......SOSTMR            sosModule11Start_.....SOSTMR
+sosModule1End_......SOSALLOC            sosModule1Start_....SOSALLOC
+sosModule2End_.......SOSCAPS            sosModule2Start_.....SOSCAPS
+sosModule3End_.......SOSCNTL            sosModule3Start_.....SOSCNTL
+sosModule4End_......SOSDETEC            sosModule4Start_....SOSDETEC
+sosModule5End_........SOSERR            sosModule5Start_......SOSERR
+sosModule6End_.......SOSINIT            sosModule6Start_.....SOSINIT
+sosModule7End_.......SOSLOAD            sosModule7Start_.....SOSLOAD
+sosModule8End_.......SOSLOCK            sosModule8Start_.....SOSLOCK
+sosModule9End_......SOSSTART            sosModule9Start_....SOSSTART
+sosSetMemAllocFunction_.....................................SOSALLOC
+sosSetMemFreeFunction_......................................SOSALLOC
+sosTIMERAlterEventRate_.......................................SOSTMR
+sosTIMERGetEventRate_.SOSTMR            sosTIMERHandler_......SOSTMR
+sosTIMERInitSystem_...SOSTMR            sosTIMEROldHandler_...SOSTMR
+sosTIMERRegisterEvent_........................................SOSTMR
+sosTIMERRemoveEvent_..SOSTMR            sosTIMERSetRate_......SOSTMR
+sosTIMERUnInitSystem_.SOSTMR            StringOut_..........SOSMWAVE
+_dwWAVEPitchTable...SOSMWAVE            _getDS................sosdrv
+_hmiDigitalMixer.......mixer            _hmiMIXERCode.........mixmix
+_hmiMIXERRoutines.....mixmix            _hmiXFERCode.........mixxfer
+_hmiXFERRoutines.....mixxfer            _pMixingBufferEnd......mixer
+_sosAllocateFarMem....sosdrv            _sosCBCKInit........SOSMCBCK
+_sosCBCKReset.......SOSMCBCK            _sosCBCKSendData....SOSMCBCK
+_sosCBCKSetInstrumentData...................................SOSMCBCK
+_sosCBCKUnInit......SOSMCBCK            _sosCreateAliasCS.....sosdrv
+_sosDetDRVEnvStringInit.......................................sosdrv
+_sosDetDRVExist.......sosdrv            _sosDetDRVGetCapsInfo.sosdrv
+_sosDetDRVGetEnvString........................................sosdrv
+_sosDetDRVGetSettings.sosdrv            
+_sosDetDRVSetEnvString........................................sosdrv
+_sosDetDRVVerifySettings......................................sosdrv
+_sosDIGIGetCallTable........................................SOSMDIGI
+_sosDIGIHandleVDS.....sosdrv            _sosDIGIInit........SOSMDIGI
+_sosDIGIInitForWindows........................................sosdrv
+_sosDIGIReset.......SOSMDIGI            _sosDIGISendData....SOSMDIGI
+_sosDIGISetInstrumentData...................................SOSMDIGI
+_sosDIGIUnInit......SOSMDIGI            
+_sosDIGIUnInitForWindows......................................sosdrv
+_sosDRVAllocVDSStruct.sosdrv            
+_sosDRVFreeDMASelector........................................sosdrv
+_sosDRVFreeVDSStruct..sosdrv            _sosDRVGetCapsInfo....sosdrv
+_sosDRVGetCapsPtr.....sosdrv            _sosDRVGetFreeMemory..sosdrv
+_sosDRVInit...........sosdrv            
+_sosDRVIsWindowsActive........................................sosdrv
+_sosDRVLockMemory.....sosdrv            
+_sosDRVMakeDMASelector........................................sosdrv
+_sosDRVSetAction......sosdrv            _sosDRVSetRate........sosdrv
+_sosDRVSetupCallFunctions.....................................sosdrv
+_sosDRVStart..........sosdrv            _sosDRVStop...........sosdrv
+_sosDRVUnInit.........sosdrv            _sosDRVUnLockMemory...sosdrv
+_sosDRVVDSFreeBuffer..sosdrv            _sosDRVVDSGetBuffer...sosdrv
+_sosFreeSelector......sosdrv            _sosMIDICode23End....sosmdrv
+_sosMIDICode23Start..sosmdrv            
+_sosMIDIDIGISampleDoneCallback..............................SOSMDIGI
+_sosMIDIDRVGetCapsInfo.......................................sosmdrv
+_sosMIDIDRVGetFuncsPtr.......................................sosmdrv
+_sosMIDIDRVSpecialFunction...................................sosmdrv
+_sosModule12End.......sosdrv            _sosModule12Start.....sosdrv
+_sosModule13End.....sostimer            _sosModule13Start...sostimer
+_sosModule14End........mixer            _sosModule14Start......mixer
+_sosModule15End.......mixmix            _sosModule15Start.....mixmix
+_sosModule16End......mixxfer            _sosModule16Start....mixxfer
+_sosRealAlloc.........sosdrv            _sosRealFree..........sosdrv
+_sosTIMERDRVCallOld.sostimer            _sosTIMERDRVDisable.sostimer
+_sosTIMERDRVEnable..sostimer            _sosTIMERDRVHandler.sostimer
+_sosTIMERDRVInit....sostimer            _sosTIMERDRVSetRate.sostimer
+_sosTIMERDRVUnInit..sostimer            _sosWAVEPStopSample.SOSMWAVE
+_waveCalculatePitchBend.....................................SOSMWAVE
+_waveChannel........SOSMWAVE            
+_waveChannelNotesOff........................................SOSMWAVE
+_waveChannelResetControllers................................SOSMWAVE
+_waveChannelSetBend.SOSMWAVE            _waveChannelSetPan..SOSMWAVE
+_waveChannelSetVolume.......................................SOSMWAVE
+_waveDIGIMIDIHandle.SOSMWAVE            _waveInit...........SOSMWAVE
+_waveReset..........SOSMWAVE            _waveSampleCallback.SOSMWAVE
+_waveSendData.......SOSMWAVE            
+_waveSetInstrumentData......................................SOSMWAVE
+_waveUnInit.........SOSMWAVE            _waveVoice..........SOSMWAVE
+_wDetectDMA...........sosdrv            _wDetectIRQ...........sosdrv
+_wDetectParam.........sosdrv            _wDetectPort..........sosdrv
+_wMixingSampleEnd......mixer            _wMixingSampleFraction.mixer
+_wMixingSampleWhole....mixer            _wVolumeLeft...........mixer
+_wVolumeRight..........mixer            _xgetES..............sosmdrv
+_xint3...............sosmdrv            __bTIMERDPMI........sostimer
+__bTIMERInstalled...sostimer            
+__lpMIDICBCKFunction........................................SOSMDATA
+__lpMIDICBCKFunctions.......................................SOSMDATA
+__lpMIDIDIGIFunctions.......................................SOSMDATA
+__lpMIDIWAVEFunctions.......................................SOSMDATA
+__pSOSErrorStrings...SOSDATA            __pSOSMixerStubs.....SOSDATA
+__sDETSystem.........SOSDATA            __sMIDIDIGIChannel..SOSMDATA
+__sMIDIDriver.......SOSMDATA            __sMIDISystem.......SOSMDATA
+__sSOSMIDIDIGIDriver........................................SOSMDATA
+__sSOSMIDIDIGIQueue.SOSMDATA            __sSOSSystem.........SOSDATA
+__sTIMERSystem.......SOSDATA            __wCData1End........SOSMDATA
+__wCData1Start......SOSMDATA            
+__wMIDIDriverChannel........................................SOSMDATA
+__wMIDIDriverTotalChannels..................................SOSMDATA
+__wSOSData1End.......SOSDATA            __wSOSData1Start.....SOSDATA
+__wSOSData2End........sosdrv            __wSOSData2Start......sosdrv
+__wSOSData3End......sostimer            __wSOSData3Start....sostimer
+__wSOSData4End.........mixer            __wSOSData4Start.......mixer
+__wSOSDMAPortList....SOSDATA            
+__wSOSWAVEInsDataSet........................................SOSMWAVE
+
+SOSMDEP       Offset=00000010H
+  sosMIDICode4End_   sosMIDICode4Start_                
+  sosMIDIInitDependencyList_        
+
+SOSMWAVE      Offset=00000500H
+  StringOut_        _dwWAVEPitchTable                 
+  _sosWAVEPStopSample                 _waveCalculatePitchBend           
+  _waveChannel      _waveChannelNotesOff              
+  _waveChannelResetControllers        _waveChannelSetBend               
+  _waveChannelSetPan                  _waveChannelSetVolume             
+  _waveDIGIMIDIHandle                 _waveInit         _waveReset      
+  _waveSampleCallback                 _waveSendData   
+  _waveSetInstrumentData              _waveUnInit       _waveVoice      
+  __wSOSWAVEInsDataSet              
+
+SOSMDQ        Offset=000011d0H
+  digiQueueAddItem_                   digiQueueDeleteItemMIDI_          
+  digiQueueDeleteItemWAVE_            digiQueueDeleteItem_              
+  digiQueueFindItemMIDI_              digiQueueGetItemWAVE_             
+  digiQueueGetItem_                   digiQueueInit_    digiQueueUnInit_ 
+  sosMIDICode7End_   sosMIDICode7Start_                
+
+SOSMDIGI      Offset=00002350H
+  sosMIDICode5End_   sosMIDICode5Start_                
+  sosMIDIFlushTriggeredPatches_       sosMIDILoadTriggeredPatches_      
+  sosMIDIReleaseDigitalPatchFile_     sosMIDISetDigitalPatchFile_       
+  _sosDIGIGetCallTable                _sosDIGIInit      _sosDIGIReset   
+  _sosDIGISendData   _sosDIGISetInstrumentData           _sosDIGIUnInit  
+  _sosMIDIDIGISampleDoneCallback    
+
+SOSMCBCK      Offset=00003a70H
+  sosMIDICode2End_   sosMIDICode2Start_                  _sosCBCKInit    
+  _sosCBCKReset     _sosCBCKSendData   _sosCBCKSetInstrumentData         
+  _sosCBCKUnInit  
+
+sosmdrv       Offset=00003f00H
+  _sosMIDICode23End                   _sosMIDICode23Start               
+  _sosMIDIDRVGetCapsInfo              _sosMIDIDRVGetFuncsPtr            
+  _sosMIDIDRVSpecialFunction          _xgetES           _xint3          
+
+SOSMLOAD      Offset=00004420H
+  sosMIDICode11End_                   sosMIDICode11Start_               
+  sosMIDILoadDriver_                  sosMIDIUnLoadDriver_              
+
+SOSMVOL       Offset=00004cd0H
+  sosMIDICode22End_                   sosMIDICode22Start_               
+  sosMIDIFadeSong_   sosMIDISetDriverVolume_           
+  sosMIDISetMasterVolume_             sosMIDISetSongVolume_             
+
+SOSMTRCK      Offset=000055a0H
+  sosMIDIAddTrack_   sosMIDICode21End_                 
+  sosMIDICode21Start_                 sosMIDIInitTrack_                 
+  sosMIDIStealTrackListInsert_        sosMIDIStealTrackListRemove_      
+  sosMIDIStealTrackListRetreive_    
+
+SOSMTMPO      Offset=00005e20H
+  sosMIDICalculateLocation_           sosMIDICode20End_                 
+  sosMIDICode20Start_                 sosMIDIGetSongLocation_           
+  sosMIDIGetTrackLocation_            sosMIDISongAlterTempo_            
+
+SOSMSYS       Offset=00006670H
+  sosMIDICode19End_                   sosMIDICode19Start_               
+  sosMIDIInitSystem_                  sosMIDIUnInitSystem_              
+
+SOSMSONG      Offset=00007020H
+  sosMIDIAddSong_   sosMIDICode18End_                 
+  sosMIDICode18Start_                 sosMIDIGetSongNotesOn_            
+  sosMIDIInitSong_   sosMIDIProcessSong_               
+  sosMIDIResetSong_                   sosMIDIUnInitSong_                
+
+SOSMSEND      Offset=00007f20H
+  sosMIDICode17End_                   sosMIDICode17Start_               
+  sosMIDISendMIDIData_                sosMIDISendMIDIEvent_             
+
+SOSMPLAY      Offset=00008340H
+  sosMIDICode16End_                   sosMIDICode16Start_               
+  sosMIDISongDone_   sosMIDIStartSong_                   sosMIDIStopSong_ 
+
+SOSMPAUS      Offset=000089c0H
+  sosMIDICode15End_                   sosMIDICode15Start_               
+  sosMIDIPauseSong_                   sosMIDIResumeSong_                
+
+SOSMMUTE      Offset=00008e70H
+  sosMIDICode14End_                   sosMIDICode14Start_               
+  sosMIDIMuteSong_   sosMIDIUnMuteSong_                
+
+SOSMMAP       Offset=00009300H
+  sosMIDICode13End_                   sosMIDICode13Start_               
+  sosMIDIMapTrack_ 
+
+SOSMLOCK      Offset=000097c0H
+  sosMIDICode12End_                   sosMIDICode12Start_               
+  sosMIDILockLibrary_                 sosMIDIUnLockLibrary_             
+
+SOSMINS       Offset=0000a810H
+  sosMIDICode10End_                   sosMIDICode10Start_               
+  sosMIDIMT32Timer_                   sosMIDISetInsData_                
+  sosMIDISetMT32InsData_            
+
+SOSMINIT      Offset=0000ad50H
+  sosMIDICode9End_   sosMIDICode9Start_                
+  sosMIDIInitDriver_                  sosMIDIResetDriver_               
+  sosMIDIUnInitDriver_              
+
+SOSMEVNT      Offset=0000bcb0H
+  sosMIDICode8End_   sosMIDICode8Start_                
+  sosMIDIProcessEvent_                sosMIDIProcessSongEvents_         
+
+SOSMDLTA      Offset=0000d3e0H
+  sosMIDICode6End_   sosMIDICode6Start_                
+  sosMIDIGetDeltaTime_              
+
+SOSMDATA      Offset=0000d790H
+  __lpMIDICBCKFunction                __lpMIDICBCKFunctions             
+  __lpMIDIDIGIFunctions               __lpMIDIWAVEFunctions             
+  __sMIDIDIGIChannel                  __sMIDIDriver     __sMIDISystem   
+  __sSOSMIDIDIGIDriver                __sSOSMIDIDIGIQueue               
+  __wCData1End      __wCData1Start    __wMIDIDriverChannel              
+  __wMIDIDriverTotalChannels        
+
+SOSMCHNL      Offset=0000e810H
+  sosMIDIAcquireChannel_              sosMIDICode3End_ 
+  sosMIDICode3Start_                  sosMIDIReleaseChannel_            
+  sosMIDIResetChannelStealing_        sosMIDISendChannelInfo_           
+  sosMIDIUpdateChannel_             
+
+SOSMBRCH      Offset=0000f810H
+  sosMIDIBranchSong_                  sosMIDIBranchToSongID_            
+  sosMIDIBranchToTrackID_             sosMIDIBranchTrack_               
+  sosMIDICode1End_   sosMIDICode1Start_                
+  sosMIDIRegisterBranchFunction_      sosMIDIRegisterLoopFunction_      
+  sosMIDIRegisterTriggerFunction_   
+
+SOSALLOC      Offset=00010180H
+  sosAlloc_         sosFree_          sosModule1End_    sosModule1Start_ 
+  sosSetMemAllocFunction_             sosSetMemFreeFunction_            
+
+SOSCNTL       Offset=00010670H
+  sosDIGIGetBytesProcessed_           sosDIGIGetDMAPosition_            
+  sosDIGIGetLoopCount_                sosDIGIGetPanLocation_            
+  sosDIGIGetPanSpeed_                 sosDIGIGetSampleHandle_           
+  sosDIGIGetSampleID_                 sosDIGIGetSampleRate_             
+  sosDIGIGetSampleVolume_             sosDIGISampleDone_                
+  sosDIGISamplesPlaying_              sosDIGISetPanLocation_            
+  sosDIGISetSampleRate_               sosDIGISetSampleVolume_           
+  sosModule3End_    sosModule3Start_ 
+
+SOSTMR        Offset=00011180H
+  sosModule11End_   sosModule11Start_                 
+  sosTIMERAlterEventRate_             sosTIMERGetEventRate_             
+  sosTIMERHandler_   sosTIMERInitSystem_               
+  sosTIMEROldHandler_                 sosTIMERRegisterEvent_            
+  sosTIMERRemoveEvent_                sosTIMERSetRate_ 
+  sosTIMERUnInitSystem_             
+
+mixer         Offset=00012010H
+  _hmiDigitalMixer   _pMixingBufferEnd                   _sosModule14End 
+  _sosModule14Start                   _wMixingSampleEnd                 
+  _wMixingSampleFraction              _wMixingSampleWhole               
+  _wVolumeLeft      _wVolumeRight     __wSOSData4End    __wSOSData4Start 
+
+mixxfer       Offset=00012810H
+  _hmiXFERCode      _hmiXFERRoutines   _sosModule16End 
+  _sosModule16Start                 
+
+mixmix        Offset=00013240H
+  _hmiMIXERCode     _hmiMIXERRoutines                   _sosModule15End 
+  _sosModule15Start                 
+
+SOSDETEC      Offset=00016830H
+  sosDIGIDetectFindFirst_             sosDIGIDetectFindHardware_        
+  sosDIGIDetectFindNext_              sosDIGIDetectGetCaps_             
+  sosDIGIDetectGetSettings_           sosDIGIDetectInit_                
+  sosDIGIDetectUnInit_                sosDIGIDetectVerifySettings_      
+  sosModule4End_    sosModule4Start_ 
+
+SOSERR        Offset=00018080H
+  sosGetErrorString_                  sosModule5End_    sosModule5Start_ 
+
+SOSLOCK       Offset=00018360H
+  sosDIGILockLibrary_                 sosDIGIUnLockLibrary_             
+  sosModule8End_    sosModule8Start_ 
+
+SOSSYS        Offset=00019410H
+  sosDIGIInitSystem_                  sosDIGIUnInitSystem_              
+  sosModule10End_   sosModule10Start_                 
+
+SOSCAPS       Offset=00019850H
+  sosDIGIGetDeviceCaps_               sosModule2End_    sosModule2Start_ 
+
+SOSINIT       Offset=00019bd0H
+  sosAllocVDSPage_   sosDIGIAllocDMABuffer_            
+  sosDIGIInitDriver_                  sosDIGIMixFunction0_              
+  sosDIGIMixFunction1_                sosDIGIMixFunction2_              
+  sosDIGIMixFunction3_                sosDIGIMixFunction4_              
+  sosDIGIUnInitDriver_                sosFreeVDSPage_   sosModule6End_  
+  sosModule6Start_ 
+
+SOSSTART      Offset=0001ad60H
+  sosDIGIStartSample_                 sosDIGIStopAllSamples_            
+  sosDIGIStopSample_                  sosModule9End_    sosModule9Start_ 
+
+sostimer      Offset=0001b300H
+  _sosModule13End   _sosModule13Start                 
+  _sosTIMERDRVCallOld                 _sosTIMERDRVDisable               
+  _sosTIMERDRVEnable                  _sosTIMERDRVHandler               
+  _sosTIMERDRVInit   _sosTIMERDRVSetRate               
+  _sosTIMERDRVUnInit                  __bTIMERDPMI    
+  __bTIMERInstalled                   __wSOSData3End    __wSOSData3Start 
+
+SOSLOAD       Offset=0001b8f0H
+  sosDIGILoadDriver_                  sosDIGIUnLoadDriver_              
+  sosModule7End_    sosModule7Start_ 
+
+SOSDATA       Offset=0001c0f0H
+  __pSOSErrorStrings                  __pSOSMixerStubs   __sDETSystem    
+  __sSOSSystem      __sTIMERSystem    __wSOSData1End    __wSOSData1Start 
+  __wSOSDMAPortList                 
+
+sosdrv        Offset=0001caf0H
+  _getDS            _sosAllocateFarMem                
+  _sosCreateAliasCS                   _sosDetDRVEnvStringInit           
+  _sosDetDRVExist   _sosDetDRVGetCapsInfo             
+  _sosDetDRVGetEnvString              _sosDetDRVGetSettings             
+  _sosDetDRVSetEnvString              _sosDetDRVVerifySettings          
+  _sosDIGIHandleVDS                   _sosDIGIInitForWindows            
+  _sosDIGIUnInitForWindows            _sosDRVAllocVDSStruct             
+  _sosDRVFreeDMASelector              _sosDRVFreeVDSStruct              
+  _sosDRVGetCapsInfo                  _sosDRVGetCapsPtr                 
+  _sosDRVGetFreeMemory                _sosDRVInit     
+  _sosDRVIsWindowsActive              _sosDRVLockMemory                 
+  _sosDRVMakeDMASelector              _sosDRVSetAction   _sosDRVSetRate  
+  _sosDRVSetupCallFunctions           _sosDRVStart      _sosDRVStop     
+  _sosDRVUnInit     _sosDRVUnLockMemory               
+  _sosDRVVDSFreeBuffer                _sosDRVVDSGetBuffer               
+  _sosFreeSelector   _sosModule12End   _sosModule12Start                 
+  _sosRealAlloc     _sosRealFree      _wDetectDMA       _wDetectIRQ     
+  _wDetectParam     _wDetectPort      __wSOSData2End    __wSOSData2Start 

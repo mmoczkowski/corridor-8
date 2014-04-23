@@ -1,0 +1,128 @@
+//#line "corr7wep.c" 39
+extern short WEP_getNextHeatSource(void );
+//#line "corr7wep.c" 54
+extern void WEP_addHeatSource(short s);
+//#line "corr7wep.c" 60
+extern int WEP_getAutoAimSetting(void );
+//#line "corr7wep.c" 66
+extern void WEP_toggleAutoAimSetting(void );
+//#line "corr7wep.c" 78
+extern BOOL WEP_findPicName(char *picname,W32 *picnum);
+//#line "corr7wep.c" 122
+extern long WEP_getDistance(spritetype *spr1,spritetype *spr2);
+//#line "corr7wep.c" 138
+extern short WEP_getAngle(spritetype *src,spritetype *trg);
+//#line "corr7wep.c" 144
+extern int WEP_canSee(spritetype *spr,spritetype *trg,short fov);
+//#line "corr7wep.c" 174
+extern int WEP_canSeeRange(spritetype *spr,spritetype *trg,short fov,long dx);
+//#line "corr7wep.c" 185
+extern struct weaponData *WEP_getSpriteWeaponPtr(short s);
+//#line "corr7wep.c" 191
+extern short WEP_getWeaponAmmoType(short w);
+//#line "corr7wep.c" 200
+extern short WEP_getSpriteAmmoType(short s);
+//#line "corr7wep.c" 206
+extern void WEP_hitscanExplode(short wall,short sect,long x,long y,long z,short weapon);
+//#line "corr7wep.c" 240
+extern int WEP_damagePoints(short weap,long distx);
+//#line "corr7wep.c" 261
+extern void WEP_damageSprite(short snum,short shooter,short weapon,long distx);
+//#line "corr7wep.c" 283
+extern void WEP_explodeSprite(short snum);
+//#line "corr7wep.c" 289
+extern void WEP_spawnShockwave(short s);
+//#line "corr7wep.c" 322
+extern void WEP_projectileExplode(short snum);
+//#line "corr7wep.c" 385
+extern short WEP_findHeatSource(short s);
+//#line "corr7wep.c" 422
+extern long WEP_getSpriteHorizontalAdj(spritetype *spr1,spritetype *spr2);
+//#line "corr7wep.c" 453
+extern long WEP_getSpriteHorizontal(spritetype *spr1,spritetype *spr2,long hor);
+//#line "corr7wep.c" 469
+extern short WEP_lockon(short owner);
+//#line "corr7wep.c" 502
+extern short WEP_disperse(short d);
+//#line "corr7wep.c" 519
+extern short WEP_fixedDisperse(short n);
+//#line "corr7wep.c" 530
+extern short WEP_spawnProjectile(short owner,long z,long hor);
+//#line "corr7wep.c" 594
+extern void WEP_shootWeapon(short owner,long z,long hor,short *hitsect,short *hitwall,short *hitspr,long *hitx,long *hity,long *hitz);
+//#line "corr7wep.c" 631
+extern short WEP_turnSprite(short a,short ang,short speed);
+//#line "corr7wep.c" 665
+extern void WEP_setAngleVelocities(short s);
+//#line "corr7wep.c" 697
+extern int WEP_getAmmo(short s,short ammotype);
+//#line "corr7wep.c" 706
+extern void WEP_adjAmmo(short snum,short type,short n);
+//#line "corr7wep.c" 721
+extern void WEP_setAmmo(short snum,short type,short n);
+//#line "corr7wep.c" 730
+extern short WEP_getMaxAmmo(short snum,short type);
+//#line "corr7wep.c" 739
+extern void WEP_setMaxAmmo(short snum,short type,short n);
+//#line "corr7wep.c" 750
+extern void WEP_defaultAmmo(short snum);
+//#line "corr7wep.c" 765
+extern void WEP_addWeapon(short s,short weap);
+//#line "corr7wep.c" 770
+extern int WEP_firingWeapon(short s);
+//#line "corr7wep.c" 779
+extern int WEP_fireFrame(short s);
+//#line "corr7wep.c" 791
+extern int WEP_nextFrame(short s);
+//#line "corr7wep.c" 813
+extern int WEP_readyToFire(short s);
+//#line "corr7wep.c" 825
+extern int WEP_lowerWeapon(void );
+//#line "corr7wep.c" 840
+extern int WEP_raiseWeapon(void );
+//#line "corr7wep.c" 854
+extern void WEP_changeWeaponAnim(short s);
+//#line "corr7wep.c" 881
+extern void WEP_spriteFireWeapon(short snum);
+//#line "corr7wep.c" 935
+extern void WEP_weaponActivated(short s);
+//#line "corr7wep.c" 941
+extern int WEP_changingWeapon(void );
+//#line "corr7wep.c" 950
+extern void WEP_changeWeapon(short weap);
+//#line "corr7wep.c" 958
+extern void WEP_drawWeapon(short s,short weapon,short frame);
+//#line "corr7wep.c" 1043
+extern void WEP_doPhysics(short i,spritetype *spr);
+//#line "corr7wep.c" 1073
+extern void WEP_doStatusProjectile(short i);
+//#line "corr7wep.c" 1168
+extern void WEP_doStatusProximity(short i);
+//#line "corr7wep.c" 1229
+extern void WEP_doStatusHitscanExplode(short i);
+//#line "corr7wep.c" 1248
+extern void WEP_doStatusProjectileExplode(short i);
+//#line "corr7wep.c" 1267
+extern void WEP_doStatusShockwave(short i);
+//#line "corr7wep.c" 1315
+extern void WEP_doStatusCode(void );
+//#line "corr7wep.c" 1349
+extern void WEP_setMissileView(short snum);
+//#line "corr7wep.c" 1355
+extern short WEP_getMissileView(void );
+//#line "corr7wep.c" 1364
+extern short WEP_findMissileView(short owner);
+//#line "corr7wep.c" 1384
+extern void WEP_showMissileViewStatus(void );
+//#line "corr7wep.c" 1420
+extern void WEP_resetHeatSourceIndex(void );
+//#line "corr7wep.c" 1426
+extern int WEP_isArmedDevice(short s);
+//#line "corr7wep.c" 1440
+extern void WEP_scanMap(void );
+//#line "corr7wep.c" 1470
+extern void WEP_saveGame(FILE *fp);
+//#line "corr7wep.c" 1476
+extern void WEP_loadGame(FILE *fp);
+//#line "corr7wep.c" 1482
+extern void WEP_debug(void );

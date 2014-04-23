@@ -1,0 +1,82 @@
+//#line "corr7plr.c" 59
+extern void PLR_init(void );
+//#line "corr7plr.c" 69
+extern void PLR_unInit(void );
+//#line "corr7plr.c" 74
+extern void PLR_initMouse(void );
+//#line "corr7plr.c" 83
+extern int PLR_getMouseXSense(void );
+//#line "corr7plr.c" 89
+extern void PLR_setMouseXSense(int n);
+//#line "corr7plr.c" 95
+extern int PLR_getMouseYSense(void );
+//#line "corr7plr.c" 101
+extern void PLR_setMouseYSense(int n);
+//#line "corr7plr.c" 107
+extern int PLR_isPlayer(spritetype *spr,short s);
+//#line "corr7plr.c" 119
+extern short PLR_getPlayerNumber(spritetype *spr,short s);
+//#line "corr7plr.c" 131
+extern short PLR_getPlayerSprite(short p);
+//#line "corr7plr.c" 137
+extern void PLR_setMyWeapon(short gun);
+//#line "corr7plr.c" 143
+extern short PLR_getMyWeapon(void );
+//#line "corr7plr.c" 149
+extern void PLR_setViewWeapon(short gun);
+//#line "corr7plr.c" 155
+extern short PLR_getViewWeapon(void );
+//#line "corr7plr.c" 161
+extern void PLR_addInventoryItem(short s,short i);
+//#line "corr7plr.c" 174
+extern void PLR_removeInventoryItem(short s,short i);
+//#line "corr7plr.c" 187
+extern int PLR_hasInventoryItem(short s,short i);
+//#line "corr7plr.c" 203
+extern void PLR_updateStatusHealth(void );
+//#line "corr7plr.c" 228
+extern void PLR_updateStatusAmmo(void );
+//#line "corr7plr.c" 253
+extern void PLR_updateStatusAliens(void );
+//#line "corr7plr.c" 277
+extern void PLR_updateStatusBar(void );
+//#line "corr7plr.c" 287
+extern void PLR_checkStatusBar(void );
+//#line "corr7plr.c" 311
+extern int PLR_getKillScore(short s);
+//#line "corr7plr.c" 317
+extern void PLR_adjScore(short s);
+//#line "corr7plr.c" 352
+extern void PLR_initPlayers(void );
+//#line "corr7plr.c" 363
+extern void PLR_initPlayer(int p);
+//#line "corr7plr.c" 374
+extern void PLR_initPlayerSprite(int p);
+//#line "corr7plr.c" 456
+extern void PLR_initPlayerSprites(int nPlayers);
+//#line "corr7plr.c" 475
+extern void PLR_useCheck(short snum,long x,long y,long z,short sector,short ang);
+//#line "corr7plr.c" 499
+extern void PLR_dieAnim(short p);
+//#line "corr7plr.c" 517
+extern void PLR_footStep(short p,spritetype *spr);
+//#line "corr7plr.c" 556
+extern void PLR_movePlayer(short p);
+//#line "corr7plr.c" 758
+extern void PLR_doActors(void );
+//#line "corr7plr.c" 769
+extern int PLR_oneTimeKey(int keynum);
+//#line "corr7plr.c" 778
+extern void PLR_getMouse(short *x,short *y,short *b);
+//#line "corr7plr.c" 791
+extern void PLR_getInput(void );
+//#line "corr7plr.c" 1257
+extern void PLR_doStatusCode(void );
+//#line "corr7plr.c" 1262
+extern void PLR_checkStatus(void );
+//#line "corr7plr.c" 1275
+extern void PLR_saveGame(FILE *fp);
+//#line "corr7plr.c" 1302
+extern void PLR_loadGame(FILE *fp);
+//#line "corr7plr.c" 1331
+extern void PLR_debug(void );

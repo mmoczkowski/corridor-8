@@ -1,0 +1,38 @@
+//#line "readcfg.c" 134
+extern BOOL readHMICFGFile(PSTR szName,PSTR szDIGIName,PSTR szMIDIName);
+//#line "readcfg.c" 186
+extern void readKeyboardConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 207
+extern void writeKeyboardConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 230
+extern void readMouseConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 251
+extern void writeMouseConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 275
+extern void readJoystickConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 297
+extern void writeJoystickConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 321
+extern void readAvengerConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 343
+extern void writeAvengerConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 367
+extern void readGamepadConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 389
+extern void writeGamepadConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 413
+extern void readWingmanConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 435
+extern void writeWingmanConfig(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 459
+extern void readVFX1Config(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 481
+extern void writeVFX1Config(_INI_INSTANCE *sInstance);
+//#line "readcfg.c" 504
+extern void readVideoMode(_INI_INSTANCE *sIns);
+//#line "readcfg.c" 536
+extern void writeVideoMode(_INI_INSTANCE *sIns);
+//#line "readcfg.c" 562
+extern void readControlConfigs(int readhmi);
+//#line "readcfg.c" 602
+extern void writeControlConfigs(void );

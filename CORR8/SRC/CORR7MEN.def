@@ -1,0 +1,82 @@
+//#line "CORR7MEN.C" 362
+extern void MEN_stripTrailingBlanks(char *stg);
+//#line "CORR7MEN.C" 378
+extern void MEN_initMenus(void );
+//#line "CORR7MEN.C" 425
+extern void MEN_printext(long x,long y,int shade,char *stg,int font);
+//#line "CORR7MEN.C" 469
+extern void MEN_showHeader(char *hdr);
+//#line "CORR7MEN.C" 478
+extern void MEN_displayMenu(int cur,short items,short backpic,char *hdr,struct menuOption *men[]);
+//#line "CORR7MEN.C" 595
+extern int MEN_updateMenuTimer(void );
+//#line "CORR7MEN.C" 611
+extern void MEN_showSelectedLine(short n,struct menuOption *men[]);
+//#line "CORR7MEN.C" 646
+extern int MEN_getInput(void );
+//#line "CORR7MEN.C" 720
+extern void MEN_doMenuFrame(int opt,int num,short pic,char *hdr,struct menuOption *men[]);
+//#line "CORR7MEN.C" 735
+extern int MEN_doMenu(int *cur,int num,short backpic,char *hdr,struct menuOption *men[]);
+//#line "CORR7MEN.C" 771
+extern int MEN_graphicOptions(void );
+//#line "CORR7MEN.C" 811
+extern int MEN_soundOptions(void );
+//#line "CORR7MEN.C" 856
+extern int MEN_keyboardConfiguration(void );
+//#line "CORR7MEN.C" 893
+extern int MEN_mouseConfiguration(void );
+//#line "CORR7MEN.C" 961
+extern int MEN_mouseOptions(void );
+//#line "CORR7MEN.C" 996
+extern int MEN_controllerOptions(void );
+//#line "CORR7MEN.C" 1029
+extern int MEN_gameOptions(void );
+//#line "CORR7MEN.C" 1058
+extern void MEN_saveGameData(void );
+//#line "CORR7MEN.C" 1064
+extern int MEN_getSaveName(short pic,char *hdr);
+//#line "CORR7MEN.C" 1126
+extern void MEN_allocFrameTile(void );
+//#line "CORR7MEN.C" 1135
+extern void MEN_freeFrameTile(void );
+//#line "CORR7MEN.C" 1141
+extern int MEN_saveGameOption(void );
+//#line "CORR7MEN.C" 1181
+extern int MEN_getLoadName(void );
+//#line "CORR7MEN.C" 1191
+extern void MEN_loadGameData(void );
+//#line "CORR7MEN.C" 1197
+extern int MEN_loadGameOption(void );
+//#line "CORR7MEN.C" 1236
+extern int MEN_areYouSure(void );
+//#line "CORR7MEN.C" 1242
+extern int MEN_mainMenu(void );
+//#line "CORR7MEN.C" 1334
+extern int MEN_getMission(void );
+//#line "CORR7MEN.C" 1346
+extern int MEN_getSkill(void );
+//#line "CORR7MEN.C" 1357
+extern int MEN_getAlliedActor(void );
+//#line "CORR7MEN.C" 1369
+extern int MEN_getAxisActor(void );
+//#line "CORR7MEN.C" 1381
+extern int MEN_getAlliance(void );
+//#line "CORR7MEN.C" 1617
+extern void MEN_loadScreenShot(short spot);
+//#line "CORR7MEN.C" 1648
+extern void MEN_saveScreenShot(void );
+//#line "CORR7MEN.C" 1670
+extern void MEN_setViewToTile(short spot);
+//#line "CORR7MEN.C" 1678
+extern void MEN_setViewBack(void );
+//#line "CORR7MEN.C" 1684
+extern void MEN_getSaveScreenShot(short spot);
+//#line "CORR7MEN.C" 1692
+extern void MEN_showWeaponInfo(short weap);
+//#line "CORR7MEN.C" 1704
+extern void MEN_editWeapons(void );
+//#line "CORR7MEN.C" 1732
+extern void MEN_saveGame(FILE *fp);
+//#line "CORR7MEN.C" 1742
+extern void MEN_loadGame(FILE *fp);

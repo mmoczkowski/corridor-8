@@ -1,0 +1,4 @@
+//#line "corr7cfg.c" 11
+extern void CFG_readConfigFile(void );
+//#line "corr7cfg.c" 22
+extern void CFG_writeConfigFile(char *configName);

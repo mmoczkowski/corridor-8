@@ -1,0 +1,38 @@
+//#line "corr7mul.c" 83
+extern void MUL_init(void );
+//#line "corr7mul.c" 88
+extern void MUL_unInit(void );
+//#line "corr7mul.c" 93
+extern void MUL_readINIFile(void );
+//#line "corr7mul.c" 133
+extern void MUL_buildConnectPoints(void );
+//#line "corr7mul.c" 279
+extern void MUL_uninitMultiPlayers(void );
+//#line "corr7mul.c" 301
+extern void MUL_initMultiPlayers(void );
+//#line "corr7mul.c" 369
+extern void MUL_sendPacket(short node,char *buf,short len);
+//#line "corr7mul.c" 397
+extern short MUL_getPacket(short *node,char *buf);
+//#line "corr7mul.c" 426
+extern short MUL_getOutputCircleSize(void );
+//#line "corr7mul.c" 446
+extern void MUL_sendLogon(void );
+//#line "corr7mul.c" 463
+extern void MUL_sendLogoff(void );
+//#line "corr7mul.c" 480
+extern int MUL_waitForPlayers(void );
+//#line "corr7mul.c" 589
+extern void MUL_moveThings(void );
+//#line "corr7mul.c" 596
+extern void MUL_getInput(void );
+//#line "corr7mul.c" 739
+extern void MUL_debug(void );
+//#line "corr7mul.c" 753
+extern void MUL_scanSprite(short i);
+//#line "corr7mul.c" 809
+extern void MUL_scanMap(void );
+//#line "corr7mul.c" 822
+extern void MUL_saveGame(FILE *fp);
+//#line "corr7mul.c" 832
+extern void MUL_loadGame(FILE *fp);

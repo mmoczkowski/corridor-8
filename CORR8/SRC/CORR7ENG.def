@@ -1,0 +1,146 @@
+//#line "corr7eng.c" 127
+extern void ENG_init(void );
+//#line "corr7eng.c" 143
+extern void ENG_unInit(void );
+//#line "corr7eng.c" 148
+extern int ENG_editorGameMode(void );
+//#line "corr7eng.c" 157
+extern int ENG_inSetupVideoMode(void );
+//#line "corr7eng.c" 167
+extern void ENG_setupVideo(void );
+//#line "corr7eng.c" 185
+extern void ENG_init2DMap(void );
+//#line "corr7eng.c" 202
+extern void ENG_resetMap(void );
+//#line "corr7eng.c" 301
+extern short ENG_insertsprite(short sectnum,short statnum);
+//#line "corr7eng.c" 319
+extern void ENG_deletesprite(short spritenum);
+//#line "corr7eng.c" 328
+extern void ENG_checksumReset(void );
+//#line "corr7eng.c" 334
+extern long ENG_getMapChecksum(void );
+//#line "corr7eng.c" 340
+extern void ENG_checksumSprite(short s);
+//#line "corr7eng.c" 368
+extern void ENG_checksumSector(short s);
+//#line "corr7eng.c" 419
+extern void ENG_initBuild(void );
+//#line "corr7eng.c" 461
+extern void ENG_uninitBuild(void );
+//#line "corr7eng.c" 472
+extern char *ENG_picName(short picnum);
+//#line "corr7eng.c" 482
+extern void ENG_analyzeSprites(long dax,long day);
+//#line "corr7eng.c" 618
+extern void ENG_tileSineWave(short tilenum);
+//#line "corr7eng.c" 645
+extern void ENG_drawScreen(short snum,long smoothRatio);
+//#line "corr7eng.c" 757
+extern short ENG_getParallel(short wall);
+//#line "corr7eng.c" 772
+extern short ENG_getNormal(short wall);
+//#line "corr7eng.c" 778
+extern long ENG_alcmem(long numbytes);
+//#line "corr7eng.c" 804
+extern void ENG_alcfree(long ptr);
+//#line "corr7eng.c" 821
+extern void ENG_frameRate(void );
+//#line "corr7eng.c" 843
+extern void ENG_debug(void );
+//#line "corr7eng.c" 868
+extern void ENG_debugChain(void );
+//#line "corr7eng.c" 888
+extern char *ENG_getStatusName(short stat);
+//#line "corr7eng.c" 948
+extern char *ENG_getSectorTagName(short tag);
+//#line "corr7eng.c" 1030
+extern char *ENG_getWallTagName(short tag);
+//#line "corr7eng.c" 1058
+extern char *ENG_getSpriteTagName(short tag);
+//#line "corr7eng.c" 1174
+extern char *ENG_getActorModeName(short n);
+//#line "corr7eng.c" 1192
+extern int ENG_getInput(char *ch,char *stat);
+//#line "corr7eng.c" 1260
+extern void ENG_setMidStatbarPos(short x,short y);
+//#line "corr7eng.c" 1267
+extern void ENG_printHelpText16(short color,short font,char *fmt,... );
+//#line "corr7eng.c" 1292
+extern void ENG_showSectorTags(void );
+//#line "corr7eng.c" 1312
+extern void ENG_showWallTags(void );
+//#line "corr7eng.c" 1332
+extern void ENG_showSpriteTags(void );
+//#line "corr7eng.c" 1352
+extern void ENG_showSpriteStatnums(void );
+//#line "corr7eng.c" 1372
+extern void ENG_showEditorCommands(void );
+//#line "corr7eng.c" 1412
+extern void ENG_showCounts(void );
+//#line "corr7eng.c" 1514
+extern void ENG_showWeaponHelp(void );
+//#line "corr7eng.c" 1534
+extern void ENG_showActorTypes(void );
+//#line "corr7eng.c" 1553
+extern char *ENG_getBonusItemName(short i);
+//#line "corr7eng.c" 1577
+extern void ENG_showBonusItems(void );
+//#line "corr7eng.c" 1597
+extern void inittimer(void );
+//#line "corr7eng.c" 1603
+extern void uninittimer(void );
+//#line "corr7eng.c" 1609
+extern void ExtUnInit(void );
+//#line "corr7eng.c" 1615
+extern void ExtInit(void );
+//#line "corr7eng.c" 1647
+extern void ExtPreCheckKeys(void );
+//#line "corr7eng.c" 1652
+extern void ExtAnalyzeSprites(void );
+//#line "corr7eng.c" 1658
+extern void ENG_getDistanceAngleInfo(void );
+//#line "corr7eng.c" 1706
+extern void ENG_getSearchSprite(void );
+//#line "corr7eng.c" 1724
+extern void ENG_getSearchKeys(void );
+//#line "corr7eng.c" 1762
+extern void ENG_getPrevSprite(void );
+//#line "corr7eng.c" 1816
+extern void ENG_getNextSprite(void );
+//#line "corr7eng.c" 1870
+extern void ExtCheckKeys(void );
+//#line "corr7eng.c" 2009
+extern void ExtCleanUp(void );
+//#line "corr7eng.c" 2014
+extern void ExtLoadMap(const char *mapname);
+//#line "corr7eng.c" 2027
+extern void ExtSaveMap(const char *mapname);
+//#line "corr7eng.c" 2032
+extern const char *ExtGetSectorCaption(short sectnum);
+//#line "corr7eng.c" 2089
+extern const char *ExtGetWallCaption(short wallnum);
+//#line "corr7eng.c" 2127
+extern const char *ExtGetSpriteCaption(short spritenum);
+//#line "corr7eng.c" 2229
+extern void ExtShowSectorData(short sectnum);
+//#line "corr7eng.c" 2277
+extern void ExtShowWallData(short wallnum);
+//#line "corr7eng.c" 2301
+extern void ExtShowSpriteData(short spritenum);
+//#line "corr7eng.c" 2372
+extern void ExtEditSectorData(short sectnum);
+//#line "corr7eng.c" 2419
+extern void ExtEditWallData(short wallnum);
+//#line "corr7eng.c" 2447
+extern void ExtEditSpriteData(short spritenum);
+//#line "corr7eng.c" 2622
+extern void ENG_getTextureAssignments(short *floors,short *ceils,short *walls,short *sprites);
+//#line "corr7eng.c" 2635
+extern int getboolean16(char *stg,short bool);
+//#line "corr7eng.c" 2713
+extern void ENG_saveGame(FILE *fp);
+//#line "corr7eng.c" 2718
+extern void ENG_loadGame(FILE *fp);
+//#line "corr7eng.c" 2723
+extern void ENG_drawOverheadMap(long cposx,long cposy,long czoom,short cang);

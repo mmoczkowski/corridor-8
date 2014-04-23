@@ -1,0 +1,114 @@
+File CORR7ACT.C:
+20      //** ACT_getWalkSpeed(spritenum)   - returns walking speed (0-7)
+21      //**                               - spritePtr[spritenum]->xvel&0x0007;
+22      //** ACT_getChaseSpeed(spritenum)  - returns chasing speed (0-7)
+23      //**                               - (spritePtr[spritenum]->xvel>>3)&0x0007;
+24      //** ACT_getAggression(spritenum)  - returns aggressiveness (0-7)
+25      //**                               - (spritePtr[spritenum]->xvel>>6)&0x0007;
+26      //** ACT_getWeapon(spritenum)      - returns weapon used (0-15)
+27      //**                               - (spritePtr[spritenum]->xvel>>9)&0x000F;
+28      //** ACT_getHealth(spritenum)      - returns health for sprite (0-65535)
+29      //**                               - spritePtr[spritenum]->extra;
+30      //** ACT_getAttackee(spritenum)    - returns sprite being attacked by spritenum
+31      //**                               - spritePtr[spritenum]->owner;
+File CORR7PLR.C:
+133          return(player[p]->spriteNum);
+357               player[i]->spriteNum=-1;
+417          player[p]->spriteNum=j;
+807          snum=plr->spriteNum;
+File CORR7ENG.C:
+319     ENG_deletesprite(short spritenum)
+321          if (spritePtr[spritenum]->statnum < MAXSTATUS) {
+322               show2dsprite[spritenum>>3]&=~(1<<(spritenum&7));
+323               deletesprite(spritenum);
+2123    ExtGetSpriteCaption(short spritenum)
+2129         spr=spritePtr[spritenum];
+2130         sprintf(tempbuf," %d",spritenum);
+2132         if (ACT_isActor(spritenum)) {
+2141         else if (SND_isAmbientSound(spritenum)) {
+2142              sprintf(locbuf,": %d,AMBIENT(%s)",SND_getSoundLoopCount(spritenum)+1,
+2143                      SND_getSoundName(SND_getSoundNum(spritePtr[spritenum])));
+2146         else if (SND_isSectorSound(spritenum)) {
+2147              sprintf(locbuf,": %d,SOUNDFX(%s)",SND_getSoundLoopCount(spritenum)+1,
+2148                      SND_getSoundName(SND_getSoundNum(spritePtr[spritenum])));
+2154                   sprintf(locbuf,": %d,%s ",EFF_getWarpSpriteTag(spritenum),
+2159                   if ((j=EFF_getSpriteKey(spritenum)) <= 0) {
+2198              else if (EFF_testSpriteFlag(spritenum,EXTFLAGS_HEATSOURCE)) {
+2297    ExtShowSpriteData(short spritenum)
+2303         spr=spritePtr[spritenum];
+2309              if (ACT_isActor(spritenum)) {
+2311                   ENG_printHelpText16(11,0,"SPRITE %d MODE=%s",spritenum,
+2315                   j=EFF_testSpriteFlag(spritenum,EXTFLAGS_HEATSOURCE);
+2316                   ENG_printHelpText16(11,0,"SPRITE %d %s %s",spritenum,
+2320              if (ACT_isActor(spritenum)) {
+2322                                       ACT_getWalkSpeed(spritenum));
+2324                                       ACT_getChaseSpeed(spritenum));
+2326                                       ACT_getAggression(spritenum));
+2328                                       ACT_getWeapon(spritenum));
+2330                                       ACT_getHealth(spritenum));
+2332              else if (SND_isAmbientSound(spritenum)) {
+2333                   j=SND_getSoundNum(spritePtr[spritenum]);
+2340              else if (SND_isSectorSound(spritenum)) {
+2341                   j=SND_getSoundNum(spritePtr[spritenum]);
+2344                   j=SND_getSoundPlaytime(spritenum);
+2348                                       SND_getSoundLoopCount(spritenum)+1);
+2354                                       EFF_getWarpSpriteTag(spritenum));
+2359                                       EFF_getSpriteKey(spritenum));
+2363                                  EFF_getSpriteFlag(spritenum));
+2443    ExtEditSpriteData(short spritenum)
+2448         spr=spritePtr[spritenum];
+2452              ExtShowSpriteData(spritenum);
+2453              if (ACT_isActorPic(spritenum)) {
+2476                   sprintf(tempbuf,"Sprite (%d) actor mode: ",spritenum);
+2480                        changespritestat(spritenum,STAT_PATROL);
+2483                        changespritestat(spritenum,STAT_WANDER);
+2486                        changespritestat(spritenum,STAT_AMBUSH);
+2489                        changespritestat(spritenum,STAT_GUARD);
+2492                        changespritestat(spritenum,STAT_ATTACK);
+2495                        changespritestat(spritenum,STAT_GUARD);
+2498                   ExtShowSpriteData(spritenum);
+2500                   nickdata=ACT_getWalkSpeed(spritenum);
+2505                   ACT_setWalkSpeed(spritenum,nickdata);
+2507                   nickdata=ACT_getChaseSpeed(spritenum);
+2512                   ACT_setChaseSpeed(spritenum,nickdata);
+2514                   nickdata=ACT_getAggression(spritenum);
+2519                   ACT_setAggression(spritenum,nickdata);
+2522                   nickdata=ACT_getWeapon(spritenum);
+2524                   ACT_setWeapon(spritenum,nickdata);
+2525                   ExtShowSpriteData(spritenum);
+2527                   if ((nickdata=ACT_getHealth(spritenum)) <= 0) {
+2528                        ACT_setHealth(spritenum,1000);
+2529                        nickdata=ACT_getHealth(spritenum);
+2532                   ACT_setHealth(spritenum,nickdata);
+2535              else if (SND_isAmbientSound(spritenum)) {
+2538                   nickdata=SND_getSoundNum(spritePtr[spritenum]);
+2540                   SND_setSoundNum(spritePtr[spritenum],nickdata);
+2542                   ExtShowSpriteData(spritenum);
+2545              else if (SND_isSectorSound(spritenum)) {
+2548                   nickdata=SND_getSoundNum(spritePtr[spritenum]);
+2550                   SND_setSoundNum(spritePtr[spritenum],nickdata);
+2553                   nickdata=SND_getSoundPlaytime(spritenum);
+2555                   SND_setSoundPlaytime(spritenum,nickdata);
+2556                   ExtShowSpriteData(spritenum);
+2558                   nickdata=SND_getSoundLoopCount(spritenum)+1;
+2560                   SND_setSoundLoopCount(spritenum,nickdata-1);
+2562                   ExtShowSpriteData(spritenum);
+2568                   nickdata=EFF_getWarpSpriteTag(spritenum);
+2570                   EFF_setWarpSpriteTag(spritenum,nickdata);
+2574                   sprintf(tempbuf,"Sprite (%d) key: ",spritenum);
+2575                   nickdata=EFF_getSpriteKey(spritenum);
+2577                   EFF_setSpriteKey(spritenum,nickdata);
+2581                   if (!ACT_isActorPic(spritenum)) {
+2582                        if (WEP_isArmedDevice(spritenum)) {
+2585                                     spritenum);
+2591                                     spritenum);
+2598              if (nickdata || ACT_isActorPic(spritenum)) {
+2600                   EFF_setSpriteFlag(spritenum,EXTFLAGS_HEATSOURCE);
+2603                   sprintf(tempbuf,"Is sprite (%d) a heat source: ",spritenum);
+2606                        EFF_setSpriteFlag(spritenum,EXTFLAGS_HEATSOURCE);
+2609                        EFF_resetSpriteFlag(spritenum,EXTFLAGS_HEATSOURCE);
+2613              ExtShowSpriteData(spritenum);
+File CORR7.C:
+703     movesprite(short spritenum, long dx, long dy, long dz, long ceildist,
+713          spr=spritePtr[spritenum];
+730               changespritesect(spritenum,dasectnum);

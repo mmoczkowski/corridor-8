@@ -1,0 +1,40 @@
+//#line "corr7.c" 152
+extern void lprintf(char *fmt,... );
+//#line "corr7.c" 164
+extern void lprintat(short x,short y,char *fmt,... );
+//#line "corr7.c" 180
+extern void initVid(void );
+//#line "corr7.c" 194
+extern void startup(void );
+//#line "corr7.c" 206
+extern void shutdown(void );
+//#line "corr7.c" 229
+extern void crash(char *fmt,... );
+//#line "corr7.c" 255
+extern char *getVideoModeName(int vidmode);
+//#line "corr7.c" 261
+extern int validVideoMode(char *name,short *xsize,short *ysize);
+//#line "corr7.c" 316
+extern void showVideoResolutions(short n,short active);
+//#line "corr7.c" 391
+extern void showVideoModes(short active);
+//#line "corr7.c" 415
+extern void showSelectedVideoMode(void );
+//#line "corr7.c" 426
+extern void checkUserOptions(void );
+//#line "corr7.c" 577
+extern void showCommandLineOptionsAndExit(void );
+//#line "corr7.c" 592
+extern void checkParms(void );
+//#line "corr7.c" 675
+extern void gameMain(void );
+//#line "corr7.c" 688
+extern void faketimerhandler(void );
+//#line "corr7.c" 703
+extern short movesprite(short spritenum,long dx,long dy,long dz,long ceildist,long flordist,char cliptype);
+//#line "corr7.c" 758
+extern void debugOut(long x,long y,char *fmt,... );
+//#line "corr7.c" 773
+extern void debugOutput(void );
+//#line "corr7.c" 788
+extern void debugFPOut(char *fmt,... );

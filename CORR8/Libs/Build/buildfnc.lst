@@ -1,0 +1,1326 @@
+
+ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+³                        IMPORTANT ENGINE FUNCTIONS:                        ³
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+void
+alignceilslope(short sectnum, long x, long y, long z);
+void
+alignflorslope(short sectnum, long x, long y, long z);
+
+/*
+   Added 2 new interesting functions to the engine to make moving slope
+   programming easier.  These functions will align a slope to a given
+   (x, y, z) point.  It will make the slope pass through the point.  The
+   function will do nothing if the point is collinear to the first wall
+   of the sector.
+*/
+
+void
+allocache(long *bufptr, long bufsiz, char *lockptr);
+
+/*
+   *bufptr  = pointer to 4-byte pointer to buffer
+    bufsiz  = number of bytes to allocate
+   *lockptr = Priority byte:
+        0       non-cached memory, you NEVER set the byte to 0!
+        1-199   cached unlocked memory
+        200-255 cached locked memory
+
+   When the cacheing system needs to remove a memory block, it will try
+   to remove the FEWEST number of SMALLEST blocks with the LOWEST
+   priority.
+
+   Note: Never set the priority byte to a 0!  Let the cacheing
+         system do that for you.
+*/
+
+void
+allocatepermanenttile(short tilenume, long xsiz, long ysiz);
+
+/*
+   This function allocates a place on the cache as permanent. Right now,
+   I reset the cache every time you call this function so I would
+   recommend calling this function right after loadpics.
+*/
+
+int                             // returns 1 if true, 0 if false
+cansee(long x1, long y1, long z1, short sectnum1,
+       long x2, long y2, long z2, short sectnum2);
+
+/*
+   This function determines whether or not two 3D points can "see" each
+   other or not.  All you do is pass it the coordinates of a 3D line
+   defined by two 3D points (with their respective sectors)  The
+   function will return a 1 if the points can see each other or a 0 if
+   there is something blocking the two points from seeing each other.
+   This is how I determine whether a monster can see you or not. Try
+   playing DOOM1.DAT to fully enjoy this great function!
+*/
+
+int                             // returns 0 if no change
+changespritesect(short spritenum, short newsectnum);
+
+/*
+   Changes the sector of sprite (spritenum) to the newsector
+   (newsectnum).  This function may become internal to the engine in the
+   movesprite function.  But this function is necessary since all the
+   sectors have their own doubly-linked lists of sprites. Made
+   changespritesect and changespritestat return 0 instead of -1 when
+   changing to same value.
+*/
+
+int                             // returns 0 if no change
+changespritestat(short spritenum, short newstatnum);
+
+/*
+   Changes the status of sprite (spritenum) to status (newstatus).
+   Newstatus can be any number from 0 to MAXSTATUS-1. You can use this
+   function to put a monster on a list of active sprites when it first
+   sees you. Made changespritesect and changespritestat return 0 instead
+   of -1 when changing to same value.
+*/
+
+void
+clearview(long color);
+
+int                             // returns 1 if X,Y inside clipping box
+clipinsidebox(long x,long y,short wallnum,long walldist)
+
+/*
+
+   X and Y are the position of the sprite or player. Wallnum is the wall
+   to test and walldist is the fatness of the sprite or player (same as
+   clipmove). It returns a 1 if the sprite or player's clipping square
+   intersects the wall or 0 if not.
+
+   Made clipinsidebox and clipinsideboxline return 0 if line doesn't
+   intersect box, 1 if line intersects box and center of box is in front
+   of line, or 2 if line intersects box and center of box is behind
+   line.
+
+   Example - You can test all 4 walls of a swinging door and make
+             sure the door doesn't run you over:
+
+        short swingwall[4];   //4 wall indeces of a swinging door
+
+        for (i=0 ; i < 4 ; i++) {
+             if (clipinsidebox(posx,posy,swingwall[i],128L) == 1) {
+                //Swinging door swung into player, so move door back to
+                //its old position / inverse swinging direction.
+                  break;
+             }
+        }
+*/
+
+int                             // returns 0, 32768+wall, 49152+sprite
+clipmove(long *x, long *y, long *z, short *sectnum, long xvect, long yvect,
+         long walldist, long ceildist, long flordist, char cliptype);
+
+/*
+   Moves any object (x, y, z) in any direction at any velocity and will
+   make sure the object will stay a certain distance from walls
+   (walldist)
+
+   Pass the pointers of the starting position (x, y, z).  Then pass the
+   starting position's sector number as a pointer also. Also these
+   values will be modified accordingly.  Pass the direction and velocity
+   by using a vector (xvect, yvect).
+
+   If you don't fully understand these equations, please call me.
+         xvect = velocity * cos(angle)
+         yvect = velocity * sin(angle)
+
+   Walldist tells how close the object can get to a wall.  I use 128L as
+   my default.  If you increase walldist all of a sudden for a certain
+   object, the object might leak through a wall, so don't do that!
+
+   If cliptype is 0, then the clipping is normal (Use 0 to clip you and
+   monsters).  If the cliptype is 1, then the object is clipped to the
+   same things that hitscan is clipped to (use 1 for all bullets).
+
+     Clipmove can either return 0 (touched nothing)
+                                32768+wallnum (wall first touched)
+                                49152+spritenum (sprite first touched)
+*/
+
+void
+copytilepiece(long walnume1, long x1, long y1, long xsiz, long ysiz,
+              long walnume2, long x2, long y2, char shadeoffs);
+
+/*
+   Copies section of tile 1 (walnume1) with top-left corner (x1,y1) and
+   rectangular size (xsiz, ysiz) to top-left corner (x2, y2) of tile 2
+   (walnume).  You can animate tiles with this function.  For example,
+   with this function, you can make a slot machine like in Ken's
+   Labyrinth or an electronic sign with text sliding from right to left.
+*/
+
+void
+deletesprite(short spritenum);
+
+/*
+   Deletes the sprite.
+*/
+
+void
+dragpoint(short wallnum, long newx, long newy);
+
+/*
+   This function will drag a point in the exact same way a point is
+   dragged in 2D EDIT MODE using the left mouse button.  Simply pass it
+   which wall to drag and then pass the new x and y coordinates for that
+   point. Please use this function because if you don't and try to drag
+   points yourself, I can guarantee that it won't work as well as mine
+   and you will get confused.  Note:  Every wall of course has 2 points.
+   When you pass a wall number to this function, you are actually
+   passing 1 point, the left side of the wall (given that you are in the
+   sector of that wall) Got it?
+*/
+
+void
+draw2dscreen(long posxe, long posye, short ange, long zoome, short gride);
+
+/*
+   Draws the 2d screen - this function is a direct replacement for the
+   drawrooms() and drawmasks() functions.  Be sure to call either
+   qsetmode640350() or qsetmode640480() first.  When switching back to
+   3d mode, be sure to call qsetmode320200().
+
+            IMPORTANT NOTES:
+            1.  The overwritesprite function should only be called in
+                3D mode.  If you do this in 2D mode, junk will be
+                written to the 2D screen and a crash is possible.
+            2.  When you switch back to 3D mode, you should call the
+                permanentwritesprite functions to draw the status bar,
+                or whatever else you have to draw.
+            3.  You must call the nextpage() function in both 2D and
+                3D modes.
+*/
+
+void
+drawmasks(void);
+
+/*
+   This function draws all the sprites and masked walls to the current
+   drawing page which is not yet shown.  The reason I have the drawing
+   split up into these 2 routines is so you can animate just the sprites
+   that are about to be drawn instead of having to animate all the
+   sprites on the whole board.  Drawrooms() prepares these variables:
+   spritex[], spritey[], spritepicnum[], thesprite[], and spritesortcnt.
+   Spritesortcnt is the number of sprites about to be drawn to the page.
+   To change the sprite's picnum, simply modify the spritepicnum array
+   If you want to change other parts of the sprite structure, then you
+   can use the thesprite array to get an index to the actual sprite
+   number.
+*/
+
+void
+drawrooms(long posx, long posy, long posz, short ang, long horiz,
+          short cursectnum);
+
+/*
+   This function draws the 3D screen to the current drawing page, which
+   is not yet shown.  This way, you can overwrite some things over the
+   3D screen such as a gun.  Be sure to call the drawmasks() function
+   soon after you call the drawrooms() function.  To view the screen,
+   use the nextpage() function.  The nextpage() function should always
+   be called sometime after each draw3dscreen() function.
+*/
+
+short                           // returns angle
+getangle(long xvect,long yvect);
+
+/*
+   Use this function call to determine the angle between two points. For
+   example, if you want a monster to shoot a bullet towards you, you
+   would get the bullet's angle this way:
+
+   sprite[bullet].ang=getangle(posx-sprite[monst].x,posy-sprite[monst].y);
+*/
+
+long                            // returns z of ceil at x,y
+getceilzofslope(short sectnum, long x, long y);
+long                            // returns z of floor at x,y
+getflorzofslope(short sectnum, long x, long y);
+
+/*
+   Returns the z coordinate of the ceiling/floor at that x, y location.
+   If the sector doesn't have a ceiling/floor slope then it immediately
+   returns the sector[].floorz or sector[].ceilingz so it's not that
+   slow.  You may want to check for slopes yourself
+   ceilingstat&2/floorstat&2 if you think the overhead of calling these
+   functions are too slow.
+*/
+
+void
+getmousevalues(short *x, short *y, short *buttons);
+
+short                           // returns bufptr length
+getpacket (short *otherconnectindex, char *bufptr);
+
+/*
+   When using getpacket, first check the value it returns. If the value
+   is 0, then the buffer length is 0 which means there are no packets
+   available.  If the buffer length is greater than 0, then use that
+   value as the length of the buffer.  Getpacket also tells you what
+   computer the message was received from - (otherconnectindex).
+*/
+
+void
+getpalookup(long davis, long dashade);
+
+/*
+        getpalookup(long davis, long dashade) {
+             return(bound32(dashade+(davis>>8)));
+        }
+
+   In the engine, I call getpalookup every time I need a pointer to a
+   256-byte palookup table.  One big limitation right now is that each
+   bunch of 256-byte tables has a limit of 64K because a shade is being
+   returned, not a 4-byte pointer.  This means you could have a maximum
+   of 8 shades, with 8 fogs per palookup. It's not as expandable as I
+   originally intended since this is a speed-critical function.  It is
+   called EVERY single time a line is drawn - probably called 50 times
+   more often than faketimerhandler.
+
+        #pragma aux bound32 =\
+        "test eax, 0ffffffe0h",\
+        "jz endit",\
+        "cmp eax, 80000000h",\
+        "sbb eax, eax",\
+        "and eax, 31",\
+        "endit:",\
+        parm [eax]\
+*/
+
+void
+getspritescreencoord(short spritesortnum, long *scrx, long *scry);
+
+/*
+   This function returns the actual screen coordinates of a sprite.  It
+   is useful for locking on to a target.  Use this function between
+   drawrooms and drawmasks.  Note that spritesortnum is the index into
+   the spritesortcnt arrays, NOT the normal sprite arrays.  Scrx and
+   scry are actual screen coordinates ranging from 0-319 and 0-199
+   respectively.
+*/
+
+void
+getzsofslope(short sectnum, long x, long y, long *ceilz, long *florz);
+
+/*
+   combination of the getceilzofslope and getflorzofslope functions.
+   Whenever you need both the ceiling and floor, it is more optimal to
+   call this function instead.  The parameters are just like the other
+   functions except the ceiling and floor are returned through pointers
+   instead of a return value.
+*/
+
+void
+getzrange(long x, long y, long z, short sectnum,
+                  long *ceilz, long *ceilhit,
+                  long *florz, long *florhit,
+                  long walldist, char cliptype);
+
+/*
+   Use this in conjunction with clipmove.  This function will keep the
+   player from falling off cliffs when you're too close to the edge.
+   This function finds the highest and lowest z coordinates that your
+   clipping BOX can get to.  It must search for all sectors (and
+   sprites) that go into your clipping box.  This method is better than
+   using sector[cursectnum].ceilingz and sector[cursectnum].floorz
+   because this searches the whole clipping box for objects, not just 1
+   point.
+
+   Pass x, y, z, sector normally.  Walldist can be 128.  Cliptype can be
+   0, 1, or 2. (just like movesprite and clipmove)  This function
+   returns the z extents in ceilz and florz. It will return the object
+   hit in ceilhit and florhit.
+
+     Ceilhit and florhit will also be either:
+                                 16384+sector (sector first touched) or
+                                 49152+spritenum (sprite first touched)
+*/
+
+void
+hitscan(long xstart, long ystart, long zstart, short startsectnum,
+        long vectorx, long vectory, long vectorz,
+        short *hitsect, short *hitwall, short *hitsprite,
+        long *hitx, long *hity, long *hitz);
+
+/*
+   Pass the starting 3D position:
+        (xstart, ystart, zstart, startsectnum)
+   Then pass the 3D angle to shoot (defined as a 3D vector):
+        (vectorx, vectory, vectorz)
+   Then set up the return values for the object hit:
+        (hitsect, hitwall, hitsprite)
+   and the exact 3D point where the ray hits:
+        (hitx, hity, hitz)
+
+   How to determine what was hit:
+      * Hitsect is always equal to the sector that was hit (always >= 0).
+
+      * If the ray hits a sprite then:
+           hitsect = thesectornumber
+           hitsprite = thespritenumber
+           hitwall = -1
+
+       * If the ray hits a wall then:
+           hitsect = thesectornumber
+           hitsprite = -1
+           hitwall = thewallnumber
+
+       * If the ray hits the ceiling of a sector then:
+           hitsect = thesectornumber
+           hitsprite = -1
+           hitwall = -1
+           vectorz < 0
+           (If vectorz < 0 then you're shooting upward which means
+              that you couldn't have hit a floor)
+
+       * If the ray hits the floor of a sector then:
+           hitsect = thesectornumber
+           hitsprite = -1
+           hitwall = -1
+           vectorz > 0
+           (If vectorz > 0 then you're shooting downard which means
+              that you couldn't have hit a ceiling)
+*/
+
+void
+initcache(long cachestart, long cachesize);
+
+/*
+        cachestart = (long)(pointer to start of BIG buffer)
+        cachesize  = length of BIG buffer
+
+   I made a new cacheing system which allows any type of object to be
+   allocated in my cache, such as artwork tiles and sounds or whatever
+   else you may want to put on the cache.  This may or may not affect
+   you.  If you haven't been hacking into my code, then you shouldn't
+   have to change your code.  The cacheing routines have been moved into
+   a separate module, cache1d.obj.  If you link engine.obj, then you
+   must also link cache1d.obj.  Please update your makefiles.
+
+   For anybody who may want to re-write my cacheing system, here's how
+   it now works:  (I have only 3 functions in cache1d.obj right now,
+   initcache, uninitcache, and allocache)
+
+   Allocate a nice BIG buffer, like from 1MB-4MB and call initcache(long
+   cachestart, long cachesize) where
+
+        cachestart = (long)(pointer to start of BIG buffer)
+        cachesize = length of BIG buffer
+
+        Ex: initcache(FP_OFF(pic),cachesize);
+
+        Loadpics calls this function for you so you don't normally need
+        to call it.
+
+   There are 3 functions in the engine which help manage the cache for
+   you:
+
+        loadpics - calls initcache
+        loadtile - calls allocache
+        allocatepermanenttile - special function that allocates
+                                permanent memory from the cache.
+*/
+
+void
+initengine(char vidoption, long xdim, long ydim);
+
+/*
+   Sets up interrupt vectors for keyboard, and initializes many
+   variables for the BUILD engine.  You should call this once before any
+   other functions of the BUILD engine are used.
+
+        vidoption can be anywhere from 0-7 (see below)
+        xdim,ydim can be any mode x resolution if vidoption = 0
+        xdim,ydim can be any vesa resolution if vidoption = 1
+        xdim,ydim must be 320*200 for any other mode.
+                (see graphics mode selection in my setup program)
+
+   ATTENTION PROGRAMMERS:  Here is the new order of modes that
+                           initengine accepts:
+
+                0 = Chain mode
+                1 = VESA mode
+                2 = Screen-Buffer
+                3 = TSENG mode
+                4 = Paradise mode
+                5 = S3
+                6 = Crystal Eyes mode
+                7 = Red-Blue mode
+*/
+
+void
+initgroupfile(char *groupfilename);
+
+/*
+   Call this with the name of your grouped file before any possible file
+   loading with the k-routines.  Note that tables.dat uses the
+   k-routines and it is in initengine(). Please don't give your grouped
+   filename an extension that starts with W, ends with D, and has a
+   vowel in between. And don't even bother to write your own file
+   grouping system because even if you do, people still have to write
+   their own new utilities to read the ART and MAP files.
+*/
+
+void
+initmouse(void);
+
+/*
+   Initializes the mouse handler.
+*/
+
+void
+initmultiplayers(char option[4], char option[5], char priority);
+
+/*
+   Call this right after initengine.  Pass option[4] and option[5]
+   exactly the way I have it written here.  (option[4] is the COM1-COM4,
+   network option and option[5] is the com speed selection option)
+   Priority can be used to decide who becomes master.  Lower is more
+   towards the master.
+*/
+
+short                           // returns spritenum
+insertsprite(short sectnum, short statnum);
+
+/*
+   Whenever you insert a sprite, you must pass it the sector number, and
+   a status number (statnum).  The status number can be any number from
+   0 to MAXSTATUS-1.  Insertsprite works like a memory allocation
+   function and returns the sprite number.
+*/
+
+int                             // returns 1 if inside sectnum else 0
+inside(long x, long y, short sectnum);
+
+/*
+   Tests to see whether the overhead point (x, y) is inside sector
+   (sectnum) Returns either 0 or 1, where 1 means it is inside, and 0
+   means it is not.
+*/
+
+int                             // returns value read from "port"
+kinp(int port);
+
+int                             // returns -1 if file not found
+kopen4load(char *filename, char searchfirst);
+
+/*
+   if searchfirst = 0 then search stand alone first then group file
+   if searchfirst = 1 then search group file only
+
+   My system will first search for the stand-alone file in the
+   directory.  If it doesn't find it, then it will search for it in the
+   group file.  If it still doesn't find it then -1 city.
+
+   Use KGROUP.EXE to create a grouped file from a lot of other files.
+   Type "KGROUP [grouped filename][filespec][filespec][...]". For example
+   this line will create the new grouped file, stuff.dat, including all
+   the following files specified:
+
+        kgroup stuff.dat *.art *.map tables.dat palette.dat
+
+   Feel free to make your own batch files.  If there is demand,
+   I can make kgroup support appending, replacing, and extraction.
+
+        Here is the file format of a grouped file:
+        ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+        ³   12 bytes - File grouping ID                                   ³
+        ³    4 bytes - Number of files                                    ³
+        ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+        ³For each file: (16 bytes per file)                               ³
+        ³   12 bytes - Filename with extension (13th byte would be a 0)   ³
+        ³    4 bytes - Length of file                                     ³
+        ÃÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´
+        ³ Pure, raw file data, ordered just like you think it would be    ³
+        ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+
+   There just couldn't be a simpler format.  This format is so hacker
+   happy that when you view it in a hex editor, all the filenames line
+   up perfectly since they're multiples of 16. Anybody who can't figure
+   this out, of course, not only rots, but is probably one of those
+   really stupid people who would actually "pay" to get the full version
+   of a game.
+
+   The engine currently supports grouping for:
+        *.ART, *.MAP, TABLES.DAT and PALETTE.DAT
+
+   If you want to group your own files, you will have to use my loading
+   routines rather than the standard ones for those files. My file
+   routines are basically an extra layer around the standard lo-level
+   functions.  Look at these 5 routines I currently support:
+
+        open ->         kopen4load(char *filename)
+        read ->         kread(long handle, void *buffer, long leng)
+        lseek ->        klseek(long handle, long offset, long whence)
+        filelength ->   kfilelength(long handle)
+        close ->        kclose(long handle)
+*/
+
+void
+koutp(int port, int val);
+
+/*
+   Outputs value "val" to port "port"
+*/
+
+unsigned int                    // returns random number integer
+krand(void);
+
+/*
+   This simply returns a random number.  You can easily set the random
+   seed by externing the randomseed variable as a long.  This is useful
+   for keeping the random seed the same on multiple computers when
+   playing multi-player mode.
+*/
+
+long                            // returns square root
+ksqrt(long num);
+
+/*
+   A square root function optimized for integers.  Use this function
+   only if you want to.
+*/
+
+short
+lastwall(short point);
+
+/*
+   Use this function as a reverse function of wall[].point2.  In order
+   to save memory, my walls are only on a single linked list.
+*/
+
+int                             // returns -1 if file not found
+loadboard(char *filename, long *posx, long *posy, long *posz, short *ang,
+          short *cursectnum);
+
+/*
+   Loads the given board file into memory for the BUILD engine.
+   Returns -1 if file not found.  If no extension is given, .MAP will
+   be appended to the filename.
+*/
+
+int                             // returns -1 if file not found
+loadpics(char *filename);
+
+/*
+   Loads the given artwork file into memory for the BUILD engine.
+   Returns -1 if file not found.  If no extension is given, .ART will
+   be appended to the filename.
+*/
+
+void
+loadtile(short tilenume);
+
+/*
+   This function will load the tile, tilenum, into the artwork cache.  A
+   tile is not in the cache if (waloff[tilenum] == 0).  If
+   (waloff[tilenum] > 0) then it is in the cache, and you don't need to
+   call this function.
+*/
+
+void
+makepalookup(long palnum, char *remapbuf,
+             signed char r, signed char g, signed char b,
+             char dastat);
+
+/*
+   This function allows different shirt colors for sprites.  First
+   prepare remapbuf, which is a 256 byte buffer of chars which the
+   colors to remap. Palnum can be anywhere from 1-15.  Since 0 is where
+   the normal palette is stored, it is a bad idea to call this function
+   with palnum=0. In BUILD.H notice I added a new variable,
+   spritepal[MAXSPRITES]. Usually the value of this is 0 for the default
+   palette.  But if you change it to the palnum in the code between
+   drawrooms() and drawmasks then the sprite will be drawn with that
+   remapped palette.  The last 3 parameters are the color that the
+   palette fades to as you get further away.  This color is normally
+   black (0,0,0).  White would be (63,63,63). if ((dastat&1) == 0) then
+   makepalookup will allocate & deallocate the memory block for use but
+   will not waste the time creating a palookup table (assuming you will
+   create one yourself)
+*/
+
+int             // returns 0, 16384+sector, 32768+wall, 49152+sprite
+movesprite(short spritenum, long xchange, long ychange, long zchange,
+           long ceildist, long flordist, char cliptype);
+
+/*
+   This function moves the sprite given by spritenum by the 3
+   increments, xchange, ychange, and zchange.  If cliptype is 0, then
+   the clipping is normal (Use 0 to clip you and monsters).  If the
+   cliptype is 1, then the object is clipped to the same things that
+   hitscan is clipped to (use 1 for all bullets).
+
+      Movesprite can either return 0 (touched nothing)
+                               16384+sectnum (ceiling/floor first touched)
+                               32768+wallnum (wall first touched)
+                               49152+spritenum (sprite first touched)
+*/
+
+void
+neartag(long x, long y, long z, short sectnum, short ang,  // pos & ang
+        short *neartagsector,   //near sector if sector[].tag != 0
+        short *neartagwall,     //near wall if wall[].tag != 0
+        short *neartagsprite,   //near sprite if sprite[].tag != 0
+        long *neartaghitdist,   //distance to object (scale: 1024=largest)
+        long neartagrange,      //maximum distance to scan
+        char tagsearch);        //1-lotag only, 2-hitag only, 3-lotag&hitag
+
+/*
+   Neartag works sort of like hitscan, but is optimized to scan only
+   close objects and scan only objects with tags != 0.  Neartag is
+   perfect for the first line of your space bar code. It will tell you
+   what door you want to open or what switch you want to flip.
+*/
+
+void
+nextpage(void);
+
+/*
+   After a screen is prepared, use this function to view the screen.
+*/
+
+short                           // returns sector found
+nextsectorneighborz(short sectnum, long thez, short topbottom,
+                    short direction);
+
+/*
+   This function searches z-coordinates of neighboring sectors to find the
+   closest (next) ceiling starting at the given z-coordinate (thez).
+   For example, if you want to find the goal z-coordinate when opening a
+   door, you might want the door to stop at the next closest neighboring
+   ceiling z-coordinate.  You can get the z-coordinate this way:
+
+      newz = sector[nextsectorneighborz(sectnum,startz,-1,-1)].ceilingz
+
+   topbottom (3rd parameter)  -1 = search ceilings
+                               1 = search floors
+   direction (4th parameter)  -1 = search upwards
+                               1 = search downwards
+*/
+
+void
+overwritesprite(long thex, long they, short tilenum,
+                 signed char shade, char orientation, char dapalnum);
+
+/*
+   Use this function to draw any sprites that must be drawn to the
+   screen for every single frame, such as a gun or a menu system.
+
+   If Bit 0 of orientation = 0: (thex, they) is top-left corner
+   If Bit 0 of orientation = 1: (thex, they) is middle
+   If Bit 1 of orientation = 0: no relation to viewing window
+   If Bit 1 of orientation = 1: scale and clip to viewing window
+   If Bit 2 of orientation = 0: normal
+   If Bit 2 of orientation = 1: 50/50 transluscent!
+   If Bit 3 of orientation = 0: normal
+   If Bit 3 of orientation = 1: x-flipped
+   If Bit 4 of orientation = 0: normal
+   If Bit 4 of orientation = 1: y-flipped
+
+   * If it works at full screen, simply set bit 1 of orientation
+     to 1, and it should automatically scale properly!
+
+     Use this function to write sprites over the 3d view.  For example,
+     you can make a menu system with this function.  Be sure that you
+     call this function for every single frame after the 3d view is
+     drawn or else it will be flashed on for only 1 frame. If you want x
+     and y to be the top left corner, set the orientation to 0.  If you
+     want x and y to be the middle of the sprite, set the orientation to
+     1.  The reason I included the orienation = 1 option is so that if
+     you want a sprite centered and the size of the tile changes, you
+     don't need to recompile and guess where the new top left corner is.
+     Oh yeah, and I forget to mention that if shade is greater than 32,
+     than overwritesprite does transluscence.  (Try it out!)  This
+     function will clip the sprite to the startumost and startdmost
+     arrays.  Dapalnum refers to a palette lookup list (normally 0).
+*/
+
+void
+permanentwritesprite(long thex, long they, short tilenum,
+                      signed char shade, long cx1, long cy1,
+                      long cx2, long cy2, char dapalnum);
+
+/*
+   Added permanentwritesprite function for status bars or other sections
+   of the screen that will not be overwritten by the engine.  The format
+   of this function is like overwritesprite except that the x and y are
+   always top left corner, no orientation variable, and no translucence.
+
+   The 4 last parameters (cx1, cy1) - (cx2, cy2) define a rectangular
+   clipping window of where permanentwritesprite can draw to.   Dapalnum
+   refers to a palette lookup list (normally 0).
+*/
+
+void
+precache(void);
+
+/*
+   This function will go through the tilenums of all sectors, walls, and
+   sprites and call loadtile() on them.  This function will not cache in
+   some tiles of animations since their tilenums may not all be in the
+   structures.
+*/
+
+void
+printext(long x, long y, char buffer[42], short tilenum,
+         char invisiblecol);
+
+/*
+   Use this function to print text anywhere on the screen from a font
+   that you can create in EDITART.  Please see my example font in
+   TILES.ART to see how I lay out the user-defined font.  X ranges from
+   0-319. Y ranges from 0-199.  The buffer is the string to print.
+   Tilenum specifies which font to use.  Invisiblecol tells printext
+   what color to draw the transparent pixels.  If invisiblecol is 255
+   then the transpararent pixels are still transparent.
+*/
+
+void
+printext256(long x,long y,int color,int shade,char *string,int font);
+
+void
+printnum(long x, long y, long num, short tilenum, char invisiblecol);
+
+/*
+   Printnum is a function call that will print a long integer (num)
+   starting at top left corner x, y.  Please look at the documentation
+   for printext, since internally, printnum simply prepares a buffer
+   and calls the printext function.
+*/
+
+int                             // returns 0 if ok, -1 if not
+pushmove(long *x, long *y, long *z, short *sectnum,long walldist,
+          long ceildist, long flordist, char cliptype)
+
+/*
+   Added new clipping function that will push players away from walls
+   that are too close.  It solves A LOT of movement clipping problems.
+   It can be pretty darn slow if it detects that you're too close to a
+   wall, so I'd recommend using it only for players.
+
+   The parameters are exactly the same as clipmove but with no xvect or
+   yvect.  Pushmove returns either a 0 or -1.  If it returns a -1, then
+   that means that it could not push the player away from the offending
+   wall after 256 tries. When this happens, then you should kill the
+   player instantly, because this only happens when the player is
+   getting smooshed.
+*/
+
+void
+qsetmode320200(void);
+
+/*
+   Set to the game mode and load palette (320*200*256)
+*/
+
+void
+qsetmode640350(void);
+
+/*
+   Set to the 2D map mode #1 (640*350*16)
+*/
+
+void
+qsetmode640480(void);
+
+/*
+   Set to the 2D map mode #2 (640*480*16)
+*/
+
+void
+resettiming(void);
+
+/*
+   Resets timing, such as setting totalclock = 0.  Also resets other
+   timers.  This is for use with the showengineinfo function.
+*/
+
+void
+rotatepoint(long xpivot, long ypivot, long x, long y,
+            short daang, long *x2, long *y2);
+
+/*
+   This function is a very convenient and fast math helper function.
+   Rotate points easily with this function without having to juggle your
+   cosines and sines.  Simply pass it:
+       
+       Input:   1. Pivot point     (xpivot,ypivot)
+                2. Original point  (x,y)
+                3. Angle to rotate (0 = nothing, 512 = 90ø CW, etc.)
+       Output:  4. Rotated point   (*x2,*y2)
+*/
+
+void
+rotatesprite(long sx, long sy, long z, short a, short picnum,
+              signed char dashade, char dapalnum, char dastat,
+              long cx1, long cy1, long cx2, long cy2);
+
+/*
+        (sx, sy) is the center of the sprite to draw defined as screen
+                 coordinates shifted up by 16.  In auto-scale mode, be
+                 sure that (sx, sy) is using a 320*200 size screen even
+                 though the real resolution may be different.
+        (z) is the zoom.  Normal zoom is 65536.  > is zoomed in, < is
+            zoomed out.
+        (a) is the angle (0 is straight up)
+        (picnum) is the tile number
+        (dashade) is shade number
+        (dapalnum) is the palookup number
+
+        if ((dastat&1) != 0) - transluscence
+        if ((dastat&2) != 0) - auto-scale mode
+                Auto-scale mode will automatically scale from 320*200
+                resolution coordinates to the clipping window passed
+                (cx1, cy1, cx2, cy2).  In auto-scale mode, don't
+                pre-scale the (sx, sy) coordinates.  Simply pass (sx,
+                sy) as if the resolution was 320*200 even though it may
+                be different.  This means that you shouldn't use xdim or
+                ydim to get (sx, sy).
+        if ((dastat&4) != 0) - y-flip image
+        if ((dastat&8) != 0) - don't clip to startumost/startdmost.  If
+                the bit is a 1, then the sprite will not be clipped.
+                This mode is useful for doing status bars at variable
+                resolutions.  What you do is instead of calling
+                permanentwritesprite, you call rotatesprite with the
+                scaling bit and startumost/startdmost clipping bit off.
+                For non screen-buffer modes, be sure to call
+                rotatesprite for each page of the mode.  Use the
+                numpages variable in BUILD.H to get the number of video
+                pages used.
+        if ((dastat&16) == 0) - use Editart center as point passed
+        if ((dastat&16) != 0) - force point passed to be top-left corner
+        if ((dastat&32) != 0) - use reverse transluscence
+        if ((dastat&64) == 0) - masked drawing (check 255's) (slower)
+        if ((dastat&64) != 0) - draw everything (don't check 255's)
+                                (faster)
+        if ((dastat&128) != 0)- automatically draws to all pages as
+                                they come
+
+        (cx1, cy1, cx2, cy2) - The clipping window.  These coordinates
+                 are never scaled, not even in auto-scale mode.  Usually
+                 you should pass them as
+                 (windowx1,windowy1,windowx2,windowy2) for things scaled
+                 to the viewing window or (0L,0L,xdim-1L,ydim-1L) for
+                 things scaled to full screen. Probably the only time
+                 you wouldn't follow this rule is if you program a
+                 non-scaled tiled background function.
+
+   Note:  As a special case, if both ((dastat&2) != 0) and ((dastat&8)
+      != 0) then rotatesprite will scale to the full screen
+      (0,0,xdim-1,ydim-1) rather than setview's viewing window.
+      (windowx1,windowy1,etc.)  This case is useful for status bars,
+      etc.
+
+      Ex: rotatesprite(160L<<16,100L<<16,65536,totalclock<<4,
+                       DEMOSIGN,2,50L,50L,270L,150L);
+
+      This example will draw the DEMOSIGN tile in the center of the
+      screen and rotate about once per second.  The sprite will only get
+      drawn inside the rectangle from (50,50) to (270,150)
+*/
+
+int                             // returns -1 if unable to save
+saveboard(char *filename, long *posx, long *posy, long *posz, short *ang,
+          short *cursectnum);
+
+/*
+   Saves the given board from memory inro the specified filename.
+   Returns -1 if unable to save.  If no extension is given, .MAP will
+   be appended to the filename.
+*/
+
+long
+scale(short, long, long);
+
+void
+screencapture(char *filename);
+
+/*
+   Capture the screen and save it as a .BMP file.  I don't know why my
+   .BMP format isn't compatible with other programs.
+*/
+
+short                           // returns sector of given wall
+sectorofwall(short dawall);
+
+/*
+   It returns the sector of a given wall.  It is well optimized
+   including sector[sector[].nextwall].nextsector if a red wall and a
+   binary search on the sector[].wallptr's if it is a white wall.  On
+   average, sectorofwall should have to scan through only 10 different
+   sector indeces to find the right sector (not 1024!).
+*/
+
+void
+sendlogoff(void);
+
+/*
+   Call this before leaving, before uninitializing the multiplayer code.
+*/
+
+void
+sendlogon(void);
+
+/*
+   Use this function after everything's initialized, but before you go
+   into the main game loop.  Right after you call sendlogon(), you
+   should run a loop that will wait until a specified number of players.
+   Here's some example code:
+
+        sendlogon();
+        while (numplayers < waitplayers) {
+                getpackets();
+        }
+        screenpeek = myconnectindex;
+
+   Getpackets reserves the packet header range from 200-255.  If you
+   keep calling getpackets after sendlogon, the numplayers variable will
+   automatically be incremented when other people log on.
+*/
+
+void
+sendpacket(short otherconnectindex, char *bufptr, short bufleng);
+
+/*
+   For COM(modem) communications, the otherconnectindex doesn't matter.
+   For network communcations, you can specify which computer to send to
+   by setting otherconnectindex to the proper index number.  You can
+   also do a broadcast by setting otherconnectindex to -1. Also pass the
+   buffer and length parameters.
+*/
+
+void
+setaspect(long xdim,long ydim);
+
+/*
+   You could call setaspect to properly adjust a mode that is not
+   exactly correct, or for special effect that stretch the screen.
+
+   In ENGINE.OBJ, I added a function, setaspect(long daaspect), where
+   you pass the Y/X aspect ratio scaled up 16 bits, so 65536 would be
+   normal.  You don't need to call this if you don't want to.  By
+   default, in setview, I call setaspect with these parameters:
+
+        setaspect(divscale16(ydim*320,xdim*200));
+        (also written as:)
+        setaspect(((ydim*320)<<16)/(xdim*200));
+
+   Note that in 320*200 mode the value passed would be 65536 which is a
+   1:1 aspect ratio.
+
+   In BUILD.H, I added yxaspect and xyaspect.
+
+   When you call setaspect(daaspect),
+
+        yxaspect = daaspect;
+        xyaspect = (1<<32) / yxaspect;   //reciprocal
+
+   and other internal variables, so DON'T MODIFY YXASPECT AND XYASPECT
+   DIRECTLY!
+
+   Since drawmapview is also affect by the aspect ratio, you will need
+   to make sure drawoverheadmap is affected so the map modes match up.
+   Please look at and copy my updated drawoverheadmap function into your
+   GAME.C if you use it.
+*/
+
+void
+setbrightness(char dabrightness, char *dapal);
+
+/*
+   dabrightness - defaults to 0.  Levels 1-15 are all brighter than 0.
+                  If you switch between 2D & 3D modes, the engine will
+                  remember the current brightness level.
+
+   dapal - is pointer to standard VGA 768 byte palette.
+*/
+
+void
+setgamemode(void);
+
+/*
+   This function sets the video mode to 320*200*256color graphics. Since
+   BUILD supports several different modes including mode x, mode 13h,
+   and other special modes, I don't expect you to write any graphics
+   output functions.  (Soon I have all the necessary functions)  If for
+   some reason, you use your own graphics mode, you must call this
+   function again before using the BUILD drawing functions.
+*/
+
+void
+setsprite(short spritenum, long newx, long newy, long newz);
+
+/*
+   This function simply sets the sprite's position to a specified
+   coordinate (newx, newy, newz) without any checking to see whether the
+   position is valid or not.  You could directly modify the sprite[].x,
+   sprite[].y, and sprite[].z values, but if you use my function, the
+   sprite is guaranteed to be in the right sector.
+*/
+
+void
+setview(long x1,long y1,long x2,long y2);
+
+void
+setvmode(long videomode);
+
+/*
+   If you look at the top of GAME.C, you will see something like this:
+   #pragma aux setvmode =\...  This is how you do in-line assembler in
+   WATCOM C.  All this function is doing is setting the video mode.
+*/
+
+void
+showengineinfo(void);
+
+/*
+   Use this function after setting to text mode to view some statics
+   about the engine, such as frame rate.
+*/
+
+void
+uninitengine(void);
+
+/*
+   Restores interrupt vectors for keyboard and timer, and frees buffers.
+   You should call this once at the end of the program before quitting
+   to dos.
+*/
+
+void
+uninitgroupfile(void);
+
+/*
+   Call before quitting to DOS.
+*/
+
+void
+uninitmultiplayers(void);
+
+/*
+   Call this right before uninitengine.
+*/
+
+void
+updatesector(long x, long y, &sectnum);
+
+/*
+   This function updates the sector number according to the x and y
+   values passed to it.  Be careful when you use this function with
+   sprites because remember that the sprite's sector number should not
+   be modified directly. If you want to update a sprite's sector, I
+   recommend using the setsprite function.
+*/
+
+======================= BUILD VARIABLES & STRUCTURES ========================
+
+extern
+short pskybits,
+    pskyoff[MAXPSKYTILES];
+
+/*
+   Made parallaxing skies tileable in any equal size chunk where the
+   chunk x size is a power of 2 from 16-1024.  You can now make a 2048
+   wide parallaxing sky with 2 chunks of 1024 (gobble gobble).
+
+        These lines were added to BUILD.H:
+
+                #define MAXPSKYTILES 256
+                EXTERN short pskyoff[MAXPSKYTILES], pskybits;
+
+   pskyoff[MAXPSKYTILES] is an array of OFFSETS of each tile from the
+                         picnum of the parallaxing sky.
+
+   pskybits is NOT the actual number of tiles, but the log (base 2) of
+            the number of tiles.  Look at this table:
+
+            For 1 tile,   pskybits = 0
+            For 2 tiles,  pskybits = 1
+            For 4 tiles,  pskybits = 2
+            For 8 tiles,  pskybits = 3
+            For 16 tiles, pskybits = 4
+            etc.
+
+
+   I know that most teams have a 1024 wide parallaxing sky that wraps
+   all the way around.  Don't worry - this is the default now.  When
+   initengine is called, the variables default to this:
+
+        pskyoff[0] = 0;
+        pskybits = 0;
+
+   You may have used a 512 wide parallaxing sky (like in my game) that
+   repeated every 180 degrees.  To make this work with the new version,
+   set these variables like this right after initengine is called:
+
+        pskyoff[0] = 0;
+        pskyoff[1] = 0;
+        pskybits = 1;
+
+   Note that both pskyoff variables are 0 here.  This will make the
+   parallaxing sky repeat.
+
+   With the new tiling, you can save memory by making small chuck sizes,
+   such as 64 or 128, and repeating certain sections.
+*/
+
+typedef struct {
+        short wallptr, wallnum;
+        long ceilingz, floorz;
+        short ceilingstat, floorstat;
+        short ceilingpicnum, ceilingheinum;
+        signed char ceilingshade;
+        char ceilingpal, ceilingxpanning, ceilingypanning;
+        short floorpicnum, floorheinum;
+        signed char floorshade;
+        char floorpal, floorxpanning, floorypanning;
+        char visibility, filler;
+        short lotag, hitag, extra;
+} sectortype;
+
+/*
+   sector[].ceilingstat/floorstat:
+     bit 0: 1 = parallaxing, 0 = not                                 "P"
+     bit 1: 1 = groudraw, 0 = not
+     bit 2: 1 = swap x&y, 0 = not                                    "F"
+     bit 3: 1 = double smooshiness                                   "E"
+     bit 4: 1 = x-flip                                               "F"
+     bit 5: 1 = y-flip                                               "F"
+     bit 6: 1 = Align texture to first wall of sector                "R"
+     bits 7-15: reserved
+*/
+
+typedef struct {
+        long x, y;
+        short point2, nextwall, nextsector, cstat;
+        short picnum, overpicnum;
+        signed char shade;
+        char pal, xrepeat, yrepeat, xpanning, ypanning;
+        short lotag, hitag, extra;
+} walltype;
+
+/*
+   wall[].cstat:
+     bit 0: 1 = Blocking wall (use with clipmove, getzrange)         "B"
+     bit 1: 1 = bottoms of invisible walls swapped, 0 = not          "2"
+     bit 2: 1 = align picture on bottom (for doors), 0 = top         "O"
+     bit 3: 1 = x-flipped, 0 = normal                                "F"
+     bit 4: 1 = masking wall, 0 = not                                "M"
+     bit 5: 1 = 1-way wall, 0 = not                                  "1"
+     bit 6: 1 = Blocking wall (use with hitscan / cliptype 1)        "H"
+     bit 7: 1 = Transluscence, 0 = not                               "T"
+     bit 8: 1 = y-flipped, 0 = normal                                "F"
+     bit 9: 1 = Transluscence reversing, 0 = normal                  "T"
+     bits 10-15: reserved
+*/
+
+typedef struct {
+        long x, y, z;
+        short cstat, picnum;
+        signed char shade;
+        char pal, clipdist, filler;
+        unsigned char xrepeat, yrepeat;
+        signed char xoffset, yoffset;
+        short sectnum, statnum;
+        short ang, owner, xvel, yvel, zvel;
+        short lotag, hitag, extra;
+} spritetype;
+
+/*
+   sprite[].cstat:
+     bit 0: 1 = Blocking sprite (use with clipmove, getzrange)       "B"
+     bit 1: 1 = transluscence, 0 = normal                            "T"
+     bit 2: 1 = x-flipped, 0 = normal                                "F"
+     bit 3: 1 = y-flipped, 0 = normal                                "F"
+     bits 5-4: 00 = FACE sprite (default)                            "R"
+               01 = WALL sprite (like masked walls)
+               10 = FLOOR sprite (parallel to ceilings&floors)
+     bit 6: 1 = 1-sided sprite, 0 = normal                           "1"
+     bit 7: 1 = Real centered centering, 0 = foot center             "C"
+     bit 8: 1 = Blocking sprite (use with hitscan / cliptype 1)      "H"
+     bit 9: 1 = Transluscence reversing, 0 = normal                  "T"
+     bits 10-14: reserved
+     bit 15: 1 = Invisible sprite, 0 = not invisible
+*/
+
+/* FORMULAS
+
+        distance=ksqrt((trg->x-src->x)*(trg->x-src->x)+
+                       (trg->y-src->y)*(trg->y-src->y));
+                       
+        horiz=((trg->z+(8<<8)-src->z)<<8)/(distance+1));
+        
+        fov:    ang1=src->ang;
+                ang2=getangle(trg->x-src->x,trg->y-src->y);
+                hiang=(ang1+(fov>>1))&2047;
+                loang=(hiang-fov)&2047;
+                if (loang > hiang) {
+                     if (ang2 > hiang && ang2 < loang) {
+                          return(0);
+                     }
+                }
+                else if (ang2 < loang || ang2 > hiang) {
+                     return(0);
+                }
+                return(1);
+                
+        hor:    long
+                getSpriteHorizontalAdj(spritetype *src,spritetype *trg)
+                {
+                     long adj,dx,z1,z2;
+
+                     dx=getDistance(src,trg);
+                     if (dx > 0L) {
+                          z1=src->z;
+                          if ((src->cstat&SPRC_FLOORSPRITE) == 0) {
+                               z1-=(src->yrepeat<<7);
+                          }
+                          z2=trg->z;
+                          if ((trg->cstat&SPRC_FLOORSPRITE) == 0) {
+                               z2-=(trg->yrepeat<<7);
+                          }
+                          adj=(((z2-z1)/dx)<<3);
+                          if (adj < 0L) {
+                               adj-=4L;
+                          }
+                          else if (adj > 0L) {
+                               adj+=4L;
+                          }
+                     }
+                     else {
+                          adj=0L;
+                     }
+                     return(adj);
+                }
+
+                //** returns horiz[] for source sprite to hit target sprite
+                //**
+                //** src = source sprite
+                //** trg = target sprite
+                
+                long
+                getSpriteHorizontal(spritetype *src,spritetype *trg)
+                {
+                     long adj,hor;
+
+                     adj=getSpriteHorizontalAdj(src,trg);
+                     hor=100-adj;
+                     if (hor > 200L) {
+                          hor=200L;
+                     }
+                     else if (hor < 0L) {
+                          hor=0L;
+                     }
+                     return(hor);
+                }
+
+*/
+

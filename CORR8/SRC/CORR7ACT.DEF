@@ -1,0 +1,152 @@
+//#line "corr7act.c" 77
+extern void ACT_init(void );
+//#line "corr7act.c" 82
+extern void ACT_unInit(void );
+//#line "corr7act.c" 87
+extern void ACT_buildPicBitArray(void );
+//#line "corr7act.c" 106
+extern short ACT_getActorPicIndex(short s);
+//#line "corr7act.c" 115
+extern void ACT_setActorPic(short s,short pic);
+//#line "corr7act.c" 121
+extern short ACT_getWalkSpeed(short s);
+//#line "corr7act.c" 127
+extern void ACT_setWalkSpeed(short s,short n);
+//#line "corr7act.c" 134
+extern short ACT_getChaseSpeed(short s);
+//#line "corr7act.c" 140
+extern void ACT_setChaseSpeed(short s,short n);
+//#line "corr7act.c" 147
+extern short ACT_getAggression(short s);
+//#line "corr7act.c" 153
+extern void ACT_setAggression(short s,short n);
+//#line "corr7act.c" 160
+extern short ACT_getWeapon(short s);
+//#line "corr7act.c" 166
+extern void ACT_setWeapon(short s,short n);
+//#line "corr7act.c" 173
+extern short ACT_getHealth(short s);
+//#line "corr7act.c" 182
+extern void ACT_setHealth(short s,short n);
+//#line "corr7act.c" 190
+extern void ACT_adjHealth(short s,short n);
+//#line "corr7act.c" 198
+extern short ACT_getAttackee(spritetype *spr);
+//#line "corr7act.c" 204
+extern void ACT_setAttackee(spritetype *spr,short n);
+//#line "corr7act.c" 210
+extern short ACT_getAttackers(short s);
+//#line "corr7act.c" 216
+extern void ACT_setAttackers(short s,short n);
+//#line "corr7act.c" 222
+extern void ACT_adjAttackers(short s,short n);
+//#line "corr7act.c" 228
+extern short ACT_getKiller(short s);
+//#line "corr7act.c" 237
+extern void ACT_setKiller(short s,short n);
+//#line "corr7act.c" 246
+extern short ACT_getFirePic1(short s);
+//#line "corr7act.c" 259
+extern short ACT_getFirePic2(short s);
+//#line "corr7act.c" 272
+extern short ACT_getPainDelay(short s);
+//#line "corr7act.c" 278
+extern void ACT_setPainDelay(short s,short n);
+//#line "corr7act.c" 284
+extern short ACT_getMadeNoise(void );
+//#line "corr7act.c" 293
+extern void ACT_setMadeNoise(short s);
+//#line "corr7act.c" 299
+extern void ACT_adjPainDelay(short s,short n);
+//#line "corr7act.c" 312
+extern short ACT_getActorViewHeight(spritetype *spr);
+//#line "corr7act.c" 318
+extern short ACT_getActorClipHeight(spritetype *spr);
+//#line "corr7act.c" 324
+extern short ACT_getActorClipDist(spritetype *spr);
+//#line "corr7act.c" 330
+extern int ACT_isDead(short s);
+//#line "corr7act.c" 346
+extern void ACT_killPlayer(short s);
+//#line "corr7act.c" 389
+extern void ACT_damageActor(short s,int d,int useskill);
+//#line "corr7act.c" 448
+extern void ACT_healActor(short s,short d);
+//#line "corr7act.c" 457
+extern void ACT_inSector(short snum,short sectnum);
+//#line "corr7act.c" 507
+extern short ACT_getSpritePic(short s);
+//#line "corr7act.c" 531
+extern int ACT_stillActor(short s);
+//#line "corr7act.c" 540
+extern short ACT_getRoundsToFire(short s);
+//#line "corr7act.c" 564
+extern void ACT_changeState(spritetype *spr,short i,short curstat,short newstat);
+//#line "corr7act.c" 590
+extern int ACT_isActorPic(short s);
+//#line "corr7act.c" 602
+extern int ACT_isActor(short s);
+//#line "corr7act.c" 614
+extern void ACT_actorPain(short snum);
+//#line "corr7act.c" 634
+extern void ACT_setupActor(short s);
+//#line "corr7act.c" 670
+extern void ACT_scanSprite(short i);
+//#line "corr7act.c" 892
+extern void ACT_scanMap(void );
+//#line "corr7act.c" 902
+extern void ACT_getBonusSectorItem(short snum,short sectnum);
+//#line "corr7act.c" 937
+extern void ACT_newSector(short s,short *osec,short *nsec,short *a,long *x,long *y,long *z);
+//#line "corr7act.c" 947
+extern short ACT_getAttackWaitDelay(short s);
+//#line "corr7act.c" 979
+extern void ACT_attackSprite(spritetype *spr,short s,short target);
+//#line "corr7act.c" 993
+extern long ACT_getAttackRange(short s);
+//#line "corr7act.c" 1005
+extern long ACT_getDistance(spritetype *src,spritetype *trg);
+//#line "corr7act.c" 1016
+extern void ACT_setAttackAngle(spritetype *src,spritetype *trg);
+//#line "corr7act.c" 1044
+extern short ACT_getNextFootStep(spritetype *spr,short s,spritetype *trg);
+//#line "corr7act.c" 1069
+extern short ACT_getAttackFollowAngle(spritetype *spr,short s,spritetype *trg);
+//#line "corr7act.c" 1096
+extern int ACT_gonnaFire(short s);
+//#line "corr7act.c" 1133
+extern void ACT_setDodgeAngle(spritetype *spr,short s);
+//#line "corr7act.c" 1161
+extern unsigned short ACT_moveSprite(short s,long *x,long *y,long *z,short *sect,long xvect,long yvect,short cdist,short cheight,short ctype);
+//#line "corr7act.c" 1184
+extern void ACT_moveActor(spritetype *spr,short s);
+//#line "corr7act.c" 1399
+extern short ACT_canSeePlayer(spritetype *spr,short fov);
+//#line "corr7act.c" 1426
+extern short ACT_findPath(spritetype *spr,short fov);
+//#line "corr7act.c" 1442
+extern void ACT_setSpritePath(spritetype *spr,short s,short fov);
+//#line "corr7act.c" 1453
+extern void ACT_doStatusPatrol(spritetype *spr,short i);
+//#line "corr7act.c" 1478
+extern void ACT_doStatusWander(spritetype *spr,short i);
+//#line "corr7act.c" 1497
+extern void ACT_doStatusAmbush(spritetype *spr,short i);
+//#line "corr7act.c" 1508
+extern void ACT_doStatusGuard(spritetype *spr,short i);
+//#line "corr7act.c" 1526
+extern void ACT_doStatusPain(spritetype *spr,short i);
+//#line "corr7act.c" 1536
+extern void ACT_doStatusChase(spritetype *spr,short i);
+//#line "corr7act.c" 1582
+extern void ACT_doStatusAttack(spritetype *spr,short i);
+//#line "corr7act.c" 1611
+extern void ACT_doStatusDodge(spritetype *spr,short i);
+//#line "corr7act.c" 1636
+extern void ACT_doStatusCode(void );
+//#line "corr7act.c" 1728
+extern void ACT_saveGame(FILE *fp);
+//#line "corr7act.c" 1754
+extern void ACT_loadGame(FILE *fp);
+//#line "corr7act.c" 1780
+extern void ACT_debug(void );

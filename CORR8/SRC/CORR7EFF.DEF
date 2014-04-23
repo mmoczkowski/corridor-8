@@ -1,0 +1,242 @@
+//#line "corr7eff.c" 75
+extern void EFF_init(void );
+//#line "corr7eff.c" 94
+extern void EFF_unInit(void );
+//#line "corr7eff.c" 99
+extern short EFF_getDoorSpeed(short s);
+//#line "corr7eff.c" 105
+extern void EFF_setDoorSpeed(short s,short n);
+//#line "corr7eff.c" 112
+extern short EFF_getDoorLock(short s);
+//#line "corr7eff.c" 118
+extern void EFF_setDoorLock(short s,short n);
+//#line "corr7eff.c" 125
+extern int EFF_isBonusSector(short s);
+//#line "corr7eff.c" 134
+extern short EFF_getBonusSectorItem(short s);
+//#line "corr7eff.c" 140
+extern void EFF_setBonusSectorItem(short s,short n);
+//#line "corr7eff.c" 147
+extern short EFF_getBonusSectorValue(short s);
+//#line "corr7eff.c" 153
+extern void EFF_setBonusSectorValue(short s,short n);
+//#line "corr7eff.c" 159
+extern void EFF_deleteBonusSector(short s);
+//#line "corr7eff.c" 186
+extern short EFF_getSpriteKey(short s);
+//#line "corr7eff.c" 192
+extern void EFF_setSpriteKey(short s,short n);
+//#line "corr7eff.c" 198
+extern short EFF_getWallKey(short w);
+//#line "corr7eff.c" 204
+extern void EFF_setWallKey(short w,short n);
+//#line "corr7eff.c" 210
+extern short EFF_getWarpDestination(short w);
+//#line "corr7eff.c" 216
+extern void EFF_setWarpDestination(short w,short n);
+//#line "corr7eff.c" 222
+extern short EFF_getWarpSpriteTag(short s);
+//#line "corr7eff.c" 228
+extern void EFF_setWarpSpriteTag(short s,short n);
+//#line "corr7eff.c" 234
+extern int EFF_isWallSwitch(short w);
+//#line "corr7eff.c" 244
+extern int EFF_isWallTrigger(short w);
+//#line "corr7eff.c" 254
+extern int EFF_isSpriteSwitch(short s);
+//#line "corr7eff.c" 264
+extern int EFF_getSpriteSwitchStatus(short s);
+//#line "corr7eff.c" 273
+extern void EFF_setSpriteSwitchStatus(short s,short onoff);
+//#line "corr7eff.c" 284
+extern int EFF_getWallSwitchStatus(short w);
+//#line "corr7eff.c" 293
+extern void EFF_setWallSwitchStatus(short w,short onoff);
+//#line "corr7eff.c" 304
+extern int EFF_checkSwitches(short hitag,short *key);
+//#line "corr7eff.c" 348
+extern int EFF_testSpriteFlag(short s,short n);
+//#line "corr7eff.c" 354
+extern short EFF_getSpriteFlag(short s);
+//#line "corr7eff.c" 360
+extern void EFF_setSpriteFlag(short s,short n);
+//#line "corr7eff.c" 366
+extern void EFF_resetSpriteFlag(short s,short n);
+//#line "corr7eff.c" 372
+extern void EFF_setSpriteFrames(short s,long tics,short picbeg,short picend);
+//#line "corr7eff.c" 381
+extern short EFF_getSectorLight(short s);
+//#line "corr7eff.c" 387
+extern void EFF_setSectorLight(short s,short n);
+//#line "corr7eff.c" 393
+extern short EFF_adjSectorLight(short s,short n);
+//#line "corr7eff.c" 412
+extern void EFF_sectorLightsOff(short s);
+//#line "corr7eff.c" 418
+extern void EFF_sectorLightsOn(short s);
+//#line "corr7eff.c" 424
+extern short EFF_getDamageClock(void );
+//#line "corr7eff.c" 430
+extern void EFF_resetDamageClock(void );
+//#line "corr7eff.c" 440
+extern short EFF_getNextSectorEffectIndex(void );
+//#line "corr7eff.c" 453
+extern short EFF_addSectorEffect(short s,short tag);
+//#line "corr7eff.c" 465
+extern void EFF_warpEffect(short s);
+//#line "corr7eff.c" 482
+extern void EFF_warpSprite(short w,short snum,short *ang,short *sect,long *x,long *y,long *z);
+//#line "corr7eff.c" 498
+extern void EFF_spawnSplash(spritetype *spr);
+//#line "corr7eff.c" 503
+extern void EFF_warpBelowWater(short s,spritetype *spr,short *sect,long *x,long *y,long *z);
+//#line "corr7eff.c" 528
+extern void EFF_warpAboveWater(short s,spritetype *spr,short *sect,long *x,long *y,long *z);
+//#line "corr7eff.c" 553
+extern int EFF_isAboveWaterSector(short s);
+//#line "corr7eff.c" 564
+extern int EFF_isBelowWaterSector(short s);
+//#line "corr7eff.c" 575
+extern void EFF_onSprite(short snum,short onsprite,short *ang,short *sect,long *x,long *y,long *z);
+//#line "corr7eff.c" 811
+extern void EFF_notify(long bcolor,char *fmt,... );
+//#line "corr7eff.c" 840
+extern void EFF_computeSectorCenter(short i);
+//#line "corr7eff.c" 868
+extern void EFF_computeSectorCenters(void );
+//#line "corr7eff.c" 884
+extern int EFF_isDoor(short s);
+//#line "corr7eff.c" 902
+extern int EFF_isElevator(short s);
+//#line "corr7eff.c" 914
+extern int EFF_operatableSector(short s);
+//#line "corr7eff.c" 923
+extern void EFF_blockDoorWalls(short s);
+//#line "corr7eff.c" 958
+extern void EFF_unblockDoorWalls(short s);
+//#line "corr7eff.c" 972
+extern void EFF_buildHitagIndex(void );
+//#line "corr7eff.c" 1000
+extern void EFF_scanSprite(short i);
+//#line "corr7eff.c" 1081
+extern void EFF_scanSectorEffects(short s);
+//#line "corr7eff.c" 1270
+extern short EFF_getNextDoorIndex(void );
+//#line "corr7eff.c" 1286
+extern int EFF_isMovingSectorMarker(short s);
+//#line "corr7eff.c" 1295
+extern int EFF_isAutoMovingSector(short s);
+//#line "corr7eff.c" 1306
+extern int EFF_isMovingSector(short s);
+//#line "corr7eff.c" 1319
+extern short EFF_getNextMovingSectorIndex(void );
+//#line "corr7eff.c" 1332
+extern int EFF_insideSector(long x,long y,short sectnum);
+//#line "corr7eff.c" 1364
+extern void EFF_addMovingSector(short sectnum);
+//#line "corr7eff.c" 1447
+extern void EFF_addMovingDoor(short d,struct doorData *dptr);
+//#line "corr7eff.c" 1462
+extern void EFF_removeMovingDoor(short d,struct doorData *dptr);
+//#line "corr7eff.c" 1479
+extern void EFF_scanMap(void );
+//#line "corr7eff.c" 1672
+extern int EFF_isDoorClosed(short s);
+//#line "corr7eff.c" 1689
+extern int EFF_isDoorOpened(short s);
+//#line "corr7eff.c" 1705
+extern int EFF_moveSectorCeiling(short s,sectortype *sect,long delta,long goalz);
+//#line "corr7eff.c" 1733
+extern int EFF_moveSectorFloor(short s,sectortype *sect,long delta,long goalz);
+//#line "corr7eff.c" 1761
+extern int EFF_slideDoorOpen(short d);
+//#line "corr7eff.c" 1883
+extern int EFF_slideDoorClose(short d);
+//#line "corr7eff.c" 2005
+extern int EFF_liveActorInSector(short s);
+//#line "corr7eff.c" 2021
+extern void EFF_moveDoor(short d,struct doorData *dptr);
+//#line "corr7eff.c" 2253
+extern void EFF_doMoveDoors(void );
+//#line "corr7eff.c" 2267
+extern void EFF_openDoor(short s);
+//#line "corr7eff.c" 2283
+extern void EFF_closeDoor(short s);
+//#line "corr7eff.c" 2299
+extern void EFF_operateDoor(short s);
+//#line "corr7eff.c" 2330
+extern void EFF_openMovingSectorDoors(short s);
+//#line "corr7eff.c" 2345
+extern void EFF_closeMovingSectorDoors(short s);
+//#line "corr7eff.c" 2360
+extern void EFF_operateMovingSector(short s);
+//#line "corr7eff.c" 2382
+extern void EFF_operateSector(short s);
+//#line "corr7eff.c" 2402
+extern void EFF_showMessages(void );
+//#line "corr7eff.c" 2432
+extern void EFF_displayMessage(char *fmt,... );
+//#line "corr7eff.c" 2462
+extern void EFF_spriteSwitchOff(short s);
+//#line "corr7eff.c" 2471
+extern void EFF_spriteSwitchOn(short s);
+//#line "corr7eff.c" 2480
+extern void EFF_wallSwitchOff(short w);
+//#line "corr7eff.c" 2489
+extern void EFF_wallSwitchOn(short w);
+//#line "corr7eff.c" 2498
+extern void EFF_turnSwitchesOn(short hitag);
+//#line "corr7eff.c" 2521
+extern void EFF_turnSwitchesOff(short hitag);
+//#line "corr7eff.c" 2544
+extern void EFF_operateWalkthruWallTags(short w);
+//#line "corr7eff.c" 2572
+extern void EFF_operateSwitchedWallTags(short w);
+//#line "corr7eff.c" 2590
+extern void EFF_operateThings(short hitag);
+//#line "corr7eff.c" 2611
+extern void EFF_operateSprite(short s);
+//#line "corr7eff.c" 2646
+extern void EFF_operateWall(short w);
+//#line "corr7eff.c" 2685
+extern void EFF_doEnterSectorTags(short snum,short *s,short *ang,long *x,long *y,long *z);
+//#line "corr7eff.c" 2730
+extern void EFF_doLeaveSectorTags(short snum,short *s,short *ang,long *x,long *y,long *z);
+//#line "corr7eff.c" 2735
+extern void EFF_spawnBlood(short s,short shooter,short damage);
+//#line "corr7eff.c" 2795
+extern void EFF_doStatusBlinkOff(short i,short s);
+//#line "corr7eff.c" 2818
+extern void EFF_doStatusBlinkOn(short i,short s);
+//#line "corr7eff.c" 2841
+extern void EFF_doStatusBlinkOn1s(short i,short s);
+//#line "corr7eff.c" 2864
+extern void EFF_doStatusOscillate(short i,short s);
+//#line "corr7eff.c" 2886
+extern void EFF_doStatusSyncBlinkOn(short i,short s);
+//#line "corr7eff.c" 2908
+extern void EFF_doStatusSyncBlinkOff(short i,short s);
+//#line "corr7eff.c" 2930
+extern void EFF_doStatusFlicker(short i,short s);
+//#line "corr7eff.c" 2953
+extern void EFF_doStatusPanCeil(short i,short s);
+//#line "corr7eff.c" 2966
+extern void EFF_doStatusPanFloor(short i,short s);
+//#line "corr7eff.c" 3000
+extern void EFF_doStatusEffects(void );
+//#line "corr7eff.c" 3049
+extern void EFF_doStatusDieAnim(short i);
+//#line "corr7eff.c" 3084
+extern void EFF_doStatusBlood(short i);
+//#line "corr7eff.c" 3126
+extern void EFF_doStatusAnims(void );
+//#line "corr7eff.c" 3141
+extern void EFF_doStatusMovingSectors(void );
+//#line "corr7eff.c" 3296
+extern void EFF_doStatusCode(void );
+//#line "corr7eff.c" 3309
+extern void EFF_saveGame(FILE *fp);
+//#line "corr7eff.c" 3346
+extern void EFF_loadGame(FILE *fp);
+//#line "corr7eff.c" 3384
+extern void EFF_debug(void );

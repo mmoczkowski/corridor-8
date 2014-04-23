@@ -1,0 +1,104 @@
+//#line "corr7gam.c" 102
+extern void GAM_init(void );
+//#line "corr7gam.c" 107
+extern void GAM_unInit(void );
+//#line "corr7gam.c" 112
+extern W32 GAM_findPicName(_INI_INSTANCE *ins,char *name);
+//#line "corr7gam.c" 127
+extern void GAM_initUniverse(void );
+//#line "corr7gam.c" 489
+extern void GAM_unInitPointers(void );
+//#line "corr7gam.c" 504
+extern void GAM_setGoreLevel(int n);
+//#line "corr7gam.c" 510
+extern int GAM_getGoreLevel(void );
+//#line "corr7gam.c" 516
+extern void GAM_setDetailLevel(int n);
+//#line "corr7gam.c" 522
+extern int GAM_getDetailLevel(void );
+//#line "corr7gam.c" 528
+extern void GAM_adjAliensLeft(short n);
+//#line "corr7gam.c" 534
+extern void GAM_setAliensLeft(short n);
+//#line "corr7gam.c" 540
+extern short GAM_getAliensLeft(void );
+//#line "corr7gam.c" 546
+extern void GAM_setMadeNoise(short s);
+//#line "corr7gam.c" 552
+extern short GAM_getMadeNoise(void );
+//#line "corr7gam.c" 561
+extern void GAM_updateStatusBar(void );
+//#line "corr7gam.c" 575
+extern int GAM_inSetupVideoMode(void );
+//#line "corr7gam.c" 585
+extern void GAM_setupVideo(int vsize);
+//#line "corr7gam.c" 632
+extern void GAM_scanDetailSprites(void );
+//#line "corr7gam.c" 678
+extern void GAM_scanSprite(short i);
+//#line "corr7gam.c" 695
+extern void GAM_scanMap(void );
+//#line "corr7gam.c" 752
+extern void GAM_onGround(short s,short flag);
+//#line "corr7gam.c" 763
+extern int GAM_isOnGround(short s);
+//#line "corr7gam.c" 772
+extern void GAM_underWater(short s,short flag);
+//#line "corr7gam.c" 783
+extern int GAM_isUnderWater(short s);
+//#line "corr7gam.c" 792
+extern int GAM_isOnWater(short s);
+//#line "corr7gam.c" 803
+extern int GAM_doWaterPhysics(short s);
+//#line "corr7gam.c" 812
+extern short GAM_getViewSprite(void );
+//#line "corr7gam.c" 818
+extern int GAM_isViewSprite(short s);
+//#line "corr7gam.c" 827
+extern void GAM_loadTextures(void );
+//#line "corr7gam.c" 850
+extern void GAM_loadLevel(int mapNumber);
+//#line "corr7gam.c" 870
+extern int GAM_demoTitleScreen(void );
+//#line "corr7gam.c" 900
+extern int GAM_demoGameCredits(void );
+//#line "corr7gam.c" 922
+extern int GAM_demoGame(void );
+//#line "corr7gam.c" 929
+extern int GAM_demoLoop(void );
+//#line "corr7gam.c" 961
+extern int GAM_orderScreen(void );
+//#line "corr7gam.c" 983
+extern int GAM_helpScreen(void );
+//#line "corr7gam.c" 1007
+extern void GAM_checkCheats(void );
+//#line "corr7gam.c" 1029
+extern void GAM_moveThings(void );
+//#line "corr7gam.c" 1036
+extern void GAM_doMoveThings(void );
+//#line "corr7gam.c" 1057
+extern void GAM_doFrame(void );
+//#line "corr7gam.c" 1084
+extern void GAM_gamePlay(void );
+//#line "corr7gam.c" 1135
+extern void GAM_gameLoop(void );
+//#line "corr7gam.c" 1217
+extern void GAM_initGame(void );
+//#line "corr7gam.c" 1247
+extern void GAM_uninitGame(void );
+//#line "corr7gam.c" 1255
+extern void GAM_nextLevel(void );
+//#line "corr7gam.c" 1268
+extern void GAM_doPhysics(short s,spritetype *spr,long *x,long *y,long *z,short *sect,short zAdj,short zHeight,short clipheight);
+//#line "corr7gam.c" 1343
+extern void GAM_applyForce(short target,short source,int force);
+//#line "corr7gam.c" 1356
+extern void GAM_doStatusCode(void );
+//#line "corr7gam.c" 1365
+extern void GAM_fwrite(void *buf,size_t elsize,size_t nelem,FILE *fp);
+//#line "corr7gam.c" 1392
+extern size_t GAM_fread(void *buf,size_t elsize,size_t nelem,FILE *fp);
+//#line "corr7gam.c" 1415
+extern void GAM_saveGame(short savespot);
+//#line "corr7gam.c" 1456
+extern void GAM_loadGame(short savespot);
